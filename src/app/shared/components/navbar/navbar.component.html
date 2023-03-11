@@ -1,1 +1,49 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+	<a class="navbar-brand navbar-logo" href="#">Logo</a>
+	<button
+		class="navbar-toggler"
+		type="button"
+		aria-controls="navbarSupportedContent"
+		aria-expanded="false"
+		aria-label="Toggle navigation"
+	>
+		<fa-icon style="font-size: 16px" [icon]="faBars"></fa-icon>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+			<div class="hori-selector">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);"
+					><fa-icon style="font-size: 16px" [icon]="faHouse"></fa-icon>Home</a
+				>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);"
+					><fa-icon style="font-size: 16px" [icon]="faPeopleGroup"></fa-icon
+					>Rankings</a
+				>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);"
+					><fa-icon style="font-size: 16px" [icon]="faMicrophoneLines"></fa-icon
+					>Tablon</a
+				>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);"
+					><fa-icon style="font-size: 16px" [icon]="faFolderOpen"></fa-icon
+					>Reglas</a
+				>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);"
+					><fa-icon style="font-size: 16px" [icon]="faUserCircle"></fa-icon
+					>Login</a
+				>
+			</li>
+		</ul>
+	</div>
+</nav>
