@@ -1,4 +1,4 @@
-.fa-icon {
+fa-icon {
 	margin-right: 10px;
 }
 
@@ -13,6 +13,7 @@
 #navbarSupportedContent{
 	overflow: hidden;
 	position: relative;
+  justify-content: flex-end;
 }
 #navbarSupportedContent ul{
 	padding: 0px;

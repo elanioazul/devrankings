@@ -43,7 +43,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	ngOnInit(): void {}
 
 	ngAfterViewInit(): void {
-		this.test();
+		setTimeout(() => {
+			this.test();
+		});
 	}
 
 	test(): void {
@@ -92,6 +94,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	}
 
 	onResize(event: any) {
-		event.target.innerWidth; // window width
+		console.log(event.target.innerWidth);
+		setTimeout(() => {
+			this.test();
+		}, 500);
 	}
 }
