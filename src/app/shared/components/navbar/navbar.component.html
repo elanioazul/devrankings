@@ -7,11 +7,15 @@
 		aria-expanded="false"
 		aria-label="Toggle navigation"
 	>
-		<fa-icon style="font-size: 16px" [icon]="faBars"></fa-icon>
+		<fa-icon style="font-size: 16px; color: white" [icon]="faBars"></fa-icon>
 	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav ml-auto">
-			<div class="hori-selector">
+	<div
+		class="collapse navbar-collapse"
+		id="navbarSupportedContent"
+		#navbarSupportedContent
+	>
+		<ul class="navbar-nav ml-auto" (click)="setNewActiveTab($event)">
+			<div class="hori-selector" #horiSelector>
 				<div class="left"></div>
 				<div class="right"></div>
 			</div>
@@ -20,7 +24,7 @@
 					><fa-icon style="font-size: 16px" [icon]="faHouse"></fa-icon>Home</a
 				>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item active">
 				<a class="nav-link" href="javascript:void(0);"
 					><fa-icon style="font-size: 16px" [icon]="faPeopleGroup"></fa-icon
 					>Rankings</a
