@@ -13,9 +13,16 @@ import {
 	faUserCircle,
 	faMicrophoneLines,
 } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { Inject } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 
+export interface INavBarMenuLinkProps {
+	to: string;
+	icon: IconDefinition;
+	label: string;
+	isDefault: boolean;
+}
 @Component({
 	selector: "app-navbar",
 	templateUrl: "./navbar.component.html",
@@ -38,6 +45,26 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
 	activeTab!: HTMLLIElement | null;
 
+	eeee!: any;
+
+	navOptions: INavBarMenuLinkProps[] = [
+		{ to: "/home", label: "Home", icon: faHouse, isDefault: true },
+		{
+			to: "/rankings",
+			label: "Rankings",
+			icon: faPeopleGroup,
+			isDefault: false,
+		},
+		{
+			to: "/tablon",
+			label: "Tablon",
+			icon: faMicrophoneLines,
+			isDefault: false,
+		},
+		{ to: "/reglas", label: "Reglas", icon: faFolderOpen, isDefault: false },
+		{ to: "/login", label: "Login", icon: faUserCircle, isDefault: false },
+	];
+
 	constructor(@Inject(DOCUMENT) private _document: Document) {}
 
 	ngOnInit(): void {}
@@ -50,10 +77,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
 	test(): void {
 		this.activeTab = this._document.querySelector(".active");
-		const activeWidthNewAnimHeight = this.activeTab?.clientHeight;
-		const activeWidthNewAnimWidth = this.activeTab?.clientWidth;
-		const itemPosNewAnimTop = this.activeTab?.clientTop;
-		const itemPosNewAnimLeft = this.activeTab?.clientLeft;
+		const activeWidthNewAnimHeight = this.activeTab?.offsetHeight;
+		const activeWidthNewAnimWidth = this.activeTab?.offsetWidth;
+		const itemPosNewAnimTop = this.activeTab?.offsetTop;
+		const itemPosNewAnimLeft = this.activeTab?.offsetLeft;
 		this.setHoriSelectorPosition(
 			itemPosNewAnimTop,
 			itemPosNewAnimLeft,
@@ -73,7 +100,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 		this.removeCurrentActiveClass(e.currentTarget.children);
 		const parentElement = e.target.parentElement;
 		parentElement.classList.add("active");
-		const activeWidthNewAnimHeight = parentElement.offserHeight;
+		const activeWidthNewAnimHeight = parentElement.offsetHeight;
 		const activeWidthNewAnimWidth = parentElement.offsetWidth;
 		const itemPosNewAnimTop = parentElement.offsetTop;
 		const itemPosNewAnimLeft = parentElement.offsetLeft;
@@ -94,9 +121,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	}
 
 	onResize(event: any) {
-		console.log(event.target.innerWidth);
-		setTimeout(() => {
-			this.test();
-		}, 500);
+		this.test();
 	}
 }

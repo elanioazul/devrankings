@@ -19,35 +19,20 @@
 				<div class="left"></div>
 				<div class="right"></div>
 			</div>
-			<li class="nav-item">
-				<a class="nav-link" href="javascript:void(0);"
-					><fa-icon style="font-size: 16px" [icon]="faHouse"></fa-icon>Home</a
-				>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="javascript:void(0);"
-					><fa-icon style="font-size: 16px" [icon]="faPeopleGroup"></fa-icon
-					>Rankings</a
-				>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="javascript:void(0);"
-					><fa-icon style="font-size: 16px" [icon]="faMicrophoneLines"></fa-icon
-					>Tablon</a
-				>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="javascript:void(0);"
-					><fa-icon style="font-size: 16px" [icon]="faFolderOpen"></fa-icon
-					>Reglas</a
-				>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="javascript:void(0);"
-					><fa-icon style="font-size: 16px" [icon]="faUserCircle"></fa-icon
-					>Login</a
-				>
-			</li>
+			<ng-container *ngFor="let option of navOptions">
+				<ng-container
+					*ngTemplateOutlet="navBarMenuLink; context: { $implicit: option }"
+				></ng-container>
+			</ng-container>
 		</ul>
 	</div>
 </nav>
+
+<ng-template #navBarMenuLink let-config>
+	<li class="nav-item" [routerLink]="config?.to" routerLinkActive="active">
+		<a class="nav-link" href="javascript:void(0);"
+			><fa-icon style="font-size: 16px" [icon]="config.icon"></fa-icon
+			>{{ config.label }}</a
+		>
+	</li>
+</ng-template>
