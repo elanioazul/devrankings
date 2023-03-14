@@ -178,6 +178,8 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 				}
 			);
 		}
-		this.test();
+		setTimeout(() => {
+			this.test();
+		}, 300);
 	}
 }
