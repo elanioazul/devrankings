@@ -121,7 +121,26 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	}
 
 	onResize(event: any) {
+		if (event.target.innerWidth > 991) {
+			this.ensureTightNavbar();
+		}
 		this.test();
+	}
+
+	ensureTightNavbar(): void {
+		const isNavbarOpened = this._document.querySelector(".opened");
+		if (isNavbarOpened) {
+			this.navbarSupportedContent.nativeElement.classList.remove("opened");
+			this.navbarSupportedContent.nativeElement.style.height = "";
+			this.navbarSupportedContent.nativeElement.style.display = "";
+			this.navbarSupportedContent.nativeElement.style.flexDirection = "";
+			this.navbarSupportedContent.nativeElement.style.setProperty(
+				"align-items",
+				"flex-end"
+			);
+		} else {
+			return;
+		}
 	}
 
 	openMenu(event: any): void {
@@ -158,5 +177,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 				}
 			);
 		}
+		this.test();
 	}
 }
