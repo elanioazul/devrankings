@@ -15,7 +15,11 @@
 		id="navbarSupportedContent"
 		#navbarSupportedContent
 	>
-		<ul class="navbar-nav ml-auto" (click)="setNewActiveTab($event)">
+		<ul
+			class="navbar-nav ml-auto"
+			#unsortedList
+			(click)="setNewActiveTab($event)"
+		>
 			<div class="hori-selector" #horiSelector>
 				<div class="left"></div>
 				<div class="right"></div>

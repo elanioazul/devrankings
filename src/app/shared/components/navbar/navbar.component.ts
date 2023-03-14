@@ -42,6 +42,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	@ViewChild("navbarSupportedContent")
 	navbarSupportedContent!: ElementRef<HTMLDivElement>;
 	@ViewChild("horiSelector") horiSelector!: ElementRef<HTMLDivElement>;
+	@ViewChild("unsortedList") unsortedList!: ElementRef<HTMLUListElement>;
 
 	activeTab!: HTMLLIElement | null;
 
@@ -138,6 +139,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 				"align-items",
 				"flex-end"
 			);
+			this.unsortedList.nativeElement.style.width = "";
 		} else {
 			return;
 		}
@@ -163,6 +165,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
 			setTimeout(() => {
 				this.navbarSupportedContent.nativeElement.style.height = height;
+				this.unsortedList.nativeElement.style.width = "100%";
 			}, 0);
 		} else {
 			this.navbarSupportedContent.nativeElement.style.height = "0px";
