@@ -24,7 +24,7 @@ fa-icon {
 	overflow: hidden;
 	position: relative;
   justify-content: flex-end;
-  &:not(.open) {
+  &:not(.opened) {
     display: none;
   }
 }

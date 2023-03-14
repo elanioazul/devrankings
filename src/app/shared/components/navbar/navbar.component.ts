@@ -125,8 +125,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	}
 
 	openMenu(event: any): void {
-		if (!this.navbarSupportedContent.nativeElement.classList.contains("open")) {
-			this.navbarSupportedContent.nativeElement.classList.add("open");
+		if (
+			!this.navbarSupportedContent.nativeElement.classList.contains("opened")
+		) {
+			this.navbarSupportedContent.nativeElement.classList.add("opened");
 			this.navbarSupportedContent.nativeElement.style.height = "auto";
 			this.navbarSupportedContent.nativeElement.style.display = "flex";
 			this.navbarSupportedContent.nativeElement.style.flexDirection = "column";
@@ -149,7 +151,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 			this.navbarSupportedContent.nativeElement.addEventListener(
 				"transitionend",
 				() => {
-					this.navbarSupportedContent.nativeElement.classList.remove("open");
+					this.navbarSupportedContent.nativeElement.classList.remove("opened");
 				},
 				{
 					once: true,
