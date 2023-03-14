@@ -46,8 +46,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
 	activeTab!: HTMLLIElement | null;
 
-	eeee!: any;
-
 	navOptions: INavBarMenuLinkProps[] = [
 		{ to: "/home", label: "Home", icon: faHouse, isDefault: true },
 		{
