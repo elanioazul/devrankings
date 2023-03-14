@@ -2,6 +2,15 @@ fa-icon {
 	margin-right: 10px;
 }
 
+.navbar-toggler {
+  border: 1px solid transparent;
+}
+
+.navbar-toggler:focus,.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
 .navbar-logo{
 	padding: 15px;
 	color: #fff;
