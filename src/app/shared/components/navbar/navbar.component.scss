@@ -20,9 +20,13 @@ fa-icon {
 	padding: 0px;
 }
 #navbarSupportedContent{
+  transition: height .25s ease;
 	overflow: hidden;
 	position: relative;
   justify-content: flex-end;
+  &:not(.open) {
+    display: none;
+  }
 }
 #navbarSupportedContent ul{
 	padding: 0px;

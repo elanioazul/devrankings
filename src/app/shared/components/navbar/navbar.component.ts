@@ -123,4 +123,38 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	onResize(event: any) {
 		this.test();
 	}
+
+	openMenu(event: any): void {
+		if (!this.navbarSupportedContent.nativeElement.classList.contains("open")) {
+			this.navbarSupportedContent.nativeElement.classList.add("open");
+			this.navbarSupportedContent.nativeElement.style.height = "auto";
+			this.navbarSupportedContent.nativeElement.style.display = "flex";
+			this.navbarSupportedContent.nativeElement.style.flexDirection = "column";
+			this.navbarSupportedContent.nativeElement.style.setProperty(
+				"align-items",
+				"flex-start"
+			);
+
+			let height =
+				this.navbarSupportedContent.nativeElement.offsetHeight + "px";
+
+			this.navbarSupportedContent.nativeElement.style.height = "0px";
+
+			setTimeout(() => {
+				this.navbarSupportedContent.nativeElement.style.height = height;
+			}, 0);
+		} else {
+			this.navbarSupportedContent.nativeElement.style.height = "0px";
+
+			this.navbarSupportedContent.nativeElement.addEventListener(
+				"transitionend",
+				() => {
+					this.navbarSupportedContent.nativeElement.classList.remove("open");
+				},
+				{
+					once: true,
+				}
+			);
+		}
+	}
 }
