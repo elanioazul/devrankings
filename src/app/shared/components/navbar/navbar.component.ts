@@ -72,7 +72,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	ngAfterViewInit(): void {
 		setTimeout(() => {
 			this.test();
-		});
+		}, 300);
 	}
 
 	test(): void {
