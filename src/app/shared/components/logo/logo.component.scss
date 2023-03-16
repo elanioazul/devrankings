@@ -1,0 +1,103 @@
+@import "../../../../theme/theme";
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  max-height: 50px;
+  &__logo {
+    //position: relative;
+  }
+
+  &__title {
+    font-family: $logo-font;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 70px;
+    color: $white;
+  }
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  background: #d6e03f;
+  border-radius: 50%;
+  @media (max-width: 991px) {
+    width: 12px;
+    height: 12px;
+  }
+}
+.dot1, .dot5 {
+  width: 12px;
+  height: 12px;
+  @media (max-width: 991px) {
+    width: 10px;
+    height: 10px;
+  }
+}
+.dot1 {
+  position: relative;
+  top: 8px;
+  @media (max-width: 991px) {
+    top: 10px;
+  }
+}
+.dot2 {
+  position: relative;
+  top: 4px;
+  left: 20px;
+  @media (max-width: 991px) {
+    top: 6px;
+    left: 17px;
+  }
+}
+.dot3 {
+  position: relative;
+  top: 0px;
+  left: 46px;
+  width: 18px;
+  height: 18px;
+  @media (max-width: 991px) {
+    width: 15px;
+    height: 15px;
+    top: 3px;
+    left: 35px;
+  }
+}
+.dot4 {
+  position: relative;
+  top: -4px;
+  left: 20px;
+  @media (max-width: 991px) {
+    top: -4px;
+    left: 17px;
+  }
+}
+.dot5 {
+  position: relative;
+  top: -10px;
+  @media (max-width: 991px) {
+    top:-10px;
+  }
+}
+
+.ring {
+  position: absolute;
+  top: 17px;
+  left: 63px;
+  width: 30px;
+  height: 30px;
+  border: 4.40px solid #fff;
+  border-radius: 50%;
+  @media (max-width: 991px) {
+    width: 25px;
+    height: 25px;
+    border: 3.7px solid #fff;
+    top: 16px;
+    left: 53px;
+  }
+}

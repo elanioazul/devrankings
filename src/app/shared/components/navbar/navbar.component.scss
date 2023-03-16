@@ -1,7 +1,10 @@
+@import "../../../../theme/theme";
 fa-icon {
 	margin-right: 10px;
 }
-
+.logo {
+  padding-left: 20px;
+}
 .navbar-toggler {
   border: 1px solid transparent;
 }
@@ -10,13 +13,8 @@ fa-icon {
   outline: none !important;
   box-shadow: none;
 }
-
-.navbar-logo{
-	padding: 15px;
-	color: #fff;
-}
 .navbar-mainbg{
-	background-color: #5161ce;
+	background-color: $hornygreenish;
 	padding: 0px;
 }
 #navbarSupportedContent{
@@ -50,7 +48,7 @@ fa-icon {
     position: relative;
 }
 #navbarSupportedContent>ul>li.active>a{
-	color: #5161ce;
+	color: $hornygreenish;
 	background-color: transparent;
 	transition: all 0.7s;
 }
@@ -78,7 +76,7 @@ fa-icon {
 	left: 0px;
 	transition-duration:0.6s;
 	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	background-color: #fff;
+	background-color: $white;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	margin-top: 10px;
@@ -88,7 +86,7 @@ fa-icon {
 	position: absolute;
 	width: 25px;
 	height: 25px;
-	background-color: #fff;
+	background-color: $white;
 	bottom: 10px;
 }
 .hori-selector .right{
@@ -104,7 +102,7 @@ fa-icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #5161ce;
+    background-color: $hornygreenish;
 }
 .hori-selector .right:before{
 	bottom: 0;
