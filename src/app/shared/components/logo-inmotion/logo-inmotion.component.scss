@@ -1,0 +1,254 @@
+@import "../../../../theme/theme";
+.box {
+  background: $hornygreenish;
+}
+
+.loadWrapper {
+  position: relative;
+}
+.dot {
+  width: 2rem;
+  height: 2rem;
+  background: #d6e03f;
+  border-radius: 50%;
+  position: absolute;
+}
+.dot1, .dot5 {
+  width: 1.5rem;
+  height: 1.5rem;
+  -webkit-animation: fadein 1.8s infinite;
+          animation: fadein 1.8s infinite;
+}
+.dot1 {
+  top: 1rem;
+  left: 1.5rem;
+}
+.dot2 {
+  top: 2.5rem;
+  left: 3rem;
+  -webkit-animation: move2from1 1.8s infinite;
+          animation: move2from1 1.8s infinite;
+}
+.dot3 {
+  top: 5rem;
+  left: 5.5rem;
+  -webkit-animation: move3from2 1.8s infinite;
+          animation: move3from2 1.8s infinite;
+}
+.dot4 {
+  top: 7.5rem;
+  left: 3rem;
+  -webkit-animation: move4from3 1.8s infinite;
+          animation: move4from3 1.8s infinite;
+}
+.dot5 {
+  top: 9.5rem;
+  left: 1.5rem;
+  -webkit-animation: move5from4 1.8s infinite;
+          animation: move5from4 1.8s infinite;
+}
+.dot6 {
+  top: 9.5rem;
+  left: 1.5rem;
+  -webkit-animation: fadeout 1.8s infinite;
+          animation: fadeout 1.8s infinite;
+}
+.ring {
+  position: absolute;
+  top: 4rem;
+  left: 4.5rem;
+  width: 3rem;
+  height: 3rem;
+  border: 0.5rem solid #fff;
+  border-radius: 50%;
+  -webkit-animation: bulge 1.8s infinite;
+          animation: bulge 1.8s infinite;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    width: 0;
+    height: 0;
+    margin-left: .75rem;
+    margin-top: .75rem;
+    opacity: 0;
+  }
+  100%   {
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    width: 0;
+    height: 0;
+    margin-left: .75rem;
+    margin-top: .75rem;
+    opacity: 0;
+  }
+  100%   {
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  0% {
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    margin-left: .75rem;
+    margin-top: .75rem;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  0% {
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    margin-left: .75rem;
+    margin-top: .75rem;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move2from1 {
+  0% {
+    top: 1rem;
+    left: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  100% {
+    top: 2.5rem;
+    left: 3rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@keyframes move2from1 {
+  0% {
+    top: 1rem;
+    left: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  100% {
+    top: 2.5rem;
+    left: 3rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@-webkit-keyframes move3from2 {
+  0% {
+    top: 2.5rem;
+    left: 3rem;
+  }
+  100% {
+    top: 5rem;
+    left: 5.5rem;
+  }
+}
+@keyframes move3from2 {
+  0% {
+    top: 2.5rem;
+    left: 3rem;
+  }
+  100% {
+    top: 5rem;
+    left: 5.5rem;
+  }
+}
+@-webkit-keyframes move4from3 {
+  0% {
+    top: 5rem;
+    left: 5.5rem;
+  }
+  100% {
+    top: 7.5rem;
+    left: 3rem;
+  }
+}
+@keyframes move4from3 {
+  0% {
+    top: 5rem;
+    left: 5.5rem;
+  }
+  100% {
+    top: 7.5rem;
+    left: 3rem;
+  }
+}
+@-webkit-keyframes move5from4 {
+  0% {
+    top: 7.5rem;
+    left: 3rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  100% {
+    top: 9.5rem;
+    left: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 1;
+  }
+}
+@keyframes move5from4 {
+  0% {
+    top: 7.5rem;
+    left: 3rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  100% {
+    top: 9.5rem;
+    left: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+@-webkit-keyframes bulge {
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  70%   {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes bulge {
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  70%   {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@media all and (min-width: 800px) {
+  html {
+    font-size: 3vw;
+  }
+}
