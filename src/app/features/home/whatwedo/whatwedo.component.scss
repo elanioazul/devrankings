@@ -1,0 +1,14 @@
+@import "../../../../theme/theme";
+
+h2 {
+  font-family: $header-font;
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  color: $hornygreenish;
+  @media (max-width: 991px) {
+    font-size: 30px;
+    letter-spacing: .4rem;
+    line-height: 2;
+  }
+}

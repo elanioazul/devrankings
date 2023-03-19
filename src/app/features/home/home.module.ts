@@ -3,10 +3,16 @@ import { CommonModule } from "@angular/common";
 
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
-import { BaseCanvasModule } from "src/app/shared";
+import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
+import { WhatwedoComponent } from "./whatwedo/whatwedo.component";
 
 @NgModule({
-	declarations: [HomeComponent],
-	imports: [CommonModule, HomeRoutingModule, BaseCanvasModule],
+	declarations: [HomeComponent, WhatwedoComponent],
+	imports: [
+		CommonModule,
+		HomeRoutingModule,
+		BaseCanvasModule,
+		CoorpFrameModule,
+	],
 })
 export class HomeModule {}
