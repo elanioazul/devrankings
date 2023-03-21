@@ -1,1 +1,32 @@
-<app-base-canvas> </app-base-canvas>
+<app-base-canvas>
+	<app-coorp-frame
+		[height]="'30px'"
+		[width]="'100%'"
+		[margin]="'10px 20px 0px 10px'"
+		[backgroundcolor]="'transparent'"
+		[borderRight]="'4px solid #00364a'"
+	></app-coorp-frame>
+	<app-coorp-frame
+		[text]="'Misión'"
+		[height]="'30px'"
+		[width]="'100%'"
+		[margin]="'0px 20px 0px 10px'"
+		[backgroundcolor]="'transparent'"
+		[borderTop]="'4px solid #00364a'"
+		[borderRight]="''"
+		[borderBottom]="'4px solid #00364a'"
+		[borderLeft]="'4px solid #00364a'"
+	></app-coorp-frame>
+	<app-coorp-frame
+		[height]="'auto'"
+		[width]="'100%'"
+		[margin]="'0px 20px 20px 10px'"
+		[backgroundcolor]="'transparent'"
+		[borderTop]="''"
+		[borderRight]="'4px solid #00364a'"
+		[borderBottom]="'4px solid #00364a'"
+		[borderLeft]="''"
+	>
+		<app-whatwedo></app-whatwedo>
+	</app-coorp-frame>
+</app-base-canvas>

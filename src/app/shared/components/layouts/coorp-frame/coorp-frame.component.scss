@@ -1,0 +1,15 @@
+@import "../../../../../theme//theme";
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: fit-content;
+  font-family: $header-font;
+  font-size: rem(20px);
+  font-weight: 700;
+  padding-left: 10px;
+  @media (max-width: 991px) {
+    font-size: rem(15px);
+  }
+}
