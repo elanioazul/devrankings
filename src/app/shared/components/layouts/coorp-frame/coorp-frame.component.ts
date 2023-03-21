@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from "@angular/core";
 	styleUrls: ["./coorp-frame.component.scss"],
 })
 export class CoorpFrameComponent implements OnInit {
+	@Input() text!: string;
 	@Input() height!: string;
 	@Input() width!: string;
 	@Input() margin!: string;
