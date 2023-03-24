@@ -8,7 +8,8 @@ import {
 	OnInit,
 	ViewChild,
 } from "@angular/core";
-import gsap from "gsap";
+import { gsap, Power4, Expo } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 @Component({
 	selector: "app-scrollslider",
 	templateUrl: "./scrollslider.component.html",
@@ -28,8 +29,8 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 	@ViewChild("slprojet") slprojet!: ElementRef<HTMLDivElement>;
 	@ViewChild("sltype") sltype!: ElementRef<HTMLDivElement>;
 	@ViewChild("more") more!: ElementRef<HTMLAnchorElement>;
-	slides: ElementRef<HTMLDivElement>[] = [];
-	ThisSl!: ElementRef["nativeElement"];
+	slides: HTMLDivElement[] = [];
+	ThisSl!: HTMLDivElement;
 	AnimInProgress!: boolean;
 	NumSl!: number;
 	CurrSl = 1;
@@ -49,7 +50,9 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		private elem: ElementRef
 	) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		gsap.registerPlugin(ScrollToPlugin);
+	}
 
 	ngAfterViewInit(): void {
 		setTimeout(() => {
@@ -181,8 +184,8 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 
 	SwitchSlider(): void {
 		this.more.nativeElement.classList.add("hide");
-		const SlCible = this.slides[this.CurrSl];
-		SlCible.nativeElement.style.setProperty("zIndex", this.Zindex.toString());
+		const SlCible = this.slides[this.CurrSl] as HTMLDivElement;
+		SlCible.style.setProperty("zIndex", this.Zindex.toString());
 		this.slcontent.nativeElement.style.setProperty(
 			"zIndex",
 			(this.Zindex + 20).toString()
@@ -196,7 +199,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 				ease: Power4.easeOut,
 			}); //Oculta filas y contador
 		} else {
-			gsap.to(this.slcontent, {
+			gsap.to(this.slcontent.nativeElement, {
 				y: "0px",
 				opacity: 1,
 				ease: Power4.easeOut,
@@ -205,40 +208,34 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		}
 
 		gsap.fromTo(
-			this.ThisSl.nativeElement.getElementsByClassName(".vis"),
+			SlCible.children[0].childNodes[0],
 			{ y: "0px", ease: Power4.easeOut },
 			{ y: this.VisOut }
-		);
+		); //máscara antigua visual
 		gsap.fromTo(
-			SlCible.nativeElement.getElementsByClassName(".vis"),
+			SlCible.children[0].childNodes[0],
 			{ y: this.VisOrigine, ease: Power4.easeOut },
 			{ y: this.VisOut }
-		);
-		gsap.to(this.ThisSl.nativeElement.getElementsByClassName(".scroll"), {
+		); //póster nuevo visual
+		gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), {
 			scrollTo: { y: CibleScrollLine, x: 0 },
 			ease: Expo.easeOut,
 			stagger: 0.1,
-		});
-		gsap.to(
-			this.ThisSl.nativeElement
-				.getElementsByClassName(".slcompteur")
-				.querySelectorAll("b>span:nth-child(0)"),
-			{
-				scrollTo: { y: CibleScrollCompteur, x: 0 },
-				ease: Expo.easeOut,
-				stagger: 0.1,
-			}
-		);
+		}); //desplazar las líneas
+		gsap.to(this.slcompteur.nativeElement.querySelectorAll("span"), {
+			scrollTo: { y: CibleScrollCompteur, x: 0 },
+			ease: Expo.easeOut,
+			stagger: 0.1,
+		}); //desplazar el contador
+		//panel de cambio
 		gsap.to(SlCible, {
 			width: "100%",
 			onComplete: () => {
-				if (SlCible.nativeElement.getElementsByTagName("a").length) {
+				if (SlCible.getElementsByTagName("a").length) {
 					const anchors: any[] = [];
-					Array.from(SlCible.nativeElement.getElementsByTagName("a")).forEach(
-						(elem: any) => {
-							anchors.push(elem);
-						}
-					);
+					Array.from(SlCible.getElementsByTagName("a")).forEach((elem: any) => {
+						anchors.push(elem);
+					});
 					this.more.nativeElement.setAttribute(
 						"href",
 						anchors[0].getAttribute("href")
