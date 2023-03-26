@@ -73,32 +73,6 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		this.affectInnerText(i[0], this.LeadingZero(this.NumSl - 1, 3));
 		this.slideSetUp();
 
-		const slclientDiv = this.slclient.nativeElement.children[0];
-		slclientDiv.append(
-			'<span>client</span> <span class="scroll">' + this.vClients + "</span>"
-		);
-		const slprojetDiv = this.slprojet.nativeElement.children[0];
-		slprojetDiv.append(
-			'<span>projet</span> <span class="scroll">' + this.vProjets + "</span>"
-		);
-		const sltypeDiv = this.slprojet.nativeElement.children[0];
-		sltypeDiv.append(
-			'<span>type</span> <span class="scroll">' + this.vType + "</span>"
-		);
-
-		const slcompteur1 = this.slcompteur.nativeElement.querySelectorAll(
-			"b>span:nth-child(2),b>span:nth-child(1)"
-		);
-		Array.from(slcompteur1).forEach((ele: any) => {
-			this.affectInnerHtml(ele, this.vLeadZero);
-		});
-		const slcompteur2 = this.slcompteur.nativeElement.querySelectorAll(
-			"b>span:nth-child(3)"
-		);
-		Array.from(slcompteur2).forEach((ele: any) => {
-			this.affectInnerHtml(ele, this.vLeadZero);
-		});
-
 		this.more.nativeElement.classList.add("hide");
 		this.Jump2Slide(1);
 	}
@@ -127,6 +101,35 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 			this.vLeadZero = this.vLeadZero + "0<br>";
 			this.vCompteur = this.vCompteur + this.ct + "0<br>";
 			this.ct = this.ct + 1;
+
+			const slclientDiv = this.slclient.nativeElement.children[0];
+			this.affectInnerText(
+				slclientDiv as HTMLElement,
+				'<span>client</span> <span class="scroll">' + this.vClients + "</span>"
+			);
+			const slprojetDiv = this.slprojet.nativeElement.children[0];
+			this.affectInnerHtml(
+				slprojetDiv as HTMLElement,
+				'<span>projet</span> <span class="scroll">' + this.vProjets + "</span>"
+			);
+			const sltypeDiv = this.slprojet.nativeElement.children[0];
+			this.affectInnerHtml(
+				sltypeDiv as HTMLElement,
+				'<span>type</span> <span class="scroll">' + this.vType + "</span>"
+			);
+
+			const slcompteur1 = this.slcompteur.nativeElement.querySelectorAll(
+				"b>span:nth-child(2),b>span:nth-child(1)"
+			);
+			Array.from(slcompteur1).forEach((ele: any) => {
+				this.affectInnerHtml(ele, this.vLeadZero);
+			});
+			const slcompteur2 = this.slcompteur.nativeElement.querySelectorAll(
+				"b>span:nth-child(3)"
+			);
+			Array.from(slcompteur2).forEach((ele: any) => {
+				this.affectInnerHtml(ele, this.vLeadZero);
+			});
 		});
 	}
 
