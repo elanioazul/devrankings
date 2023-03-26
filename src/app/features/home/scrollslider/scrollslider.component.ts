@@ -99,7 +99,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 			this.vProjets = this.vProjets + h1.innerText + "<br>";
 			this.vType = this.vType + b.innerText + "<br>";
 			this.vLeadZero = this.vLeadZero + "0<br>";
-			this.vCompteur = this.vCompteur + this.ct + "0<br>";
+			this.vCompteur = this.vCompteur + this.ct + "<br>";
 			this.ct = this.ct + 1;
 
 			const slclientDiv = this.slclient.nativeElement.children[0];
@@ -128,7 +128,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 				"b>span:nth-child(3)"
 			);
 			Array.from(slcompteur2).forEach((ele: any) => {
-				this.affectInnerHtml(ele, this.vLeadZero);
+				this.affectInnerHtml(ele, this.vCompteur);
 			});
 		});
 	}
