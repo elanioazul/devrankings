@@ -33,7 +33,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 	ThisSl!: HTMLDivElement;
 	AnimInProgress!: boolean;
 	NumSl!: number;
-	CurrSl = 1;
+	CurrSl = 0;
 	Zindex = 100;
 	vClients!: string;
 	vProjets!: string;
@@ -103,7 +103,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 			this.ct = this.ct + 1;
 
 			const slclientDiv = this.slclient.nativeElement.children[0];
-			this.affectInnerText(
+			this.affectInnerHtml(
 				slclientDiv as HTMLElement,
 				'<span>client</span> <span class="scroll">' + this.vClients + "</span>"
 			);
@@ -112,7 +112,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 				slprojetDiv as HTMLElement,
 				'<span>projet</span> <span class="scroll">' + this.vProjets + "</span>"
 			);
-			const sltypeDiv = this.slprojet.nativeElement.children[0];
+			const sltypeDiv = this.sltype.nativeElement.children[0];
 			this.affectInnerHtml(
 				sltypeDiv as HTMLElement,
 				'<span>type</span> <span class="scroll">' + this.vType + "</span>"
