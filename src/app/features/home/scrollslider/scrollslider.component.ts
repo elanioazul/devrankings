@@ -33,14 +33,14 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 	ThisSl!: HTMLDivElement;
 	AnimInProgress!: boolean;
 	NumSl!: number;
-	CurrSl = 0;
-	Zindex = 100;
+	CurrSl!: number;
+	Zindex!: number;
 	vClients!: string;
 	vProjets!: string;
 	vType!: string;
 	vCompteur!: string;
 	vLeadZero!: string;
-	ct = 0;
+	ct!: number;
 
 	VisOrigine!: string;
 	VisOut!: string;
@@ -71,7 +71,18 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		const slcompteur = this.slcompteur.nativeElement;
 		const i = slcompteur.getElementsByTagName("i");
 		this.affectInnerText(i[0], this.LeadingZero(this.NumSl - 1, 3));
-		this.slideSetUp();
+		this.CurrSl = 1;
+		this.Zindex = 100;
+		this.vClients =
+			this.vProjets =
+			this.vType =
+			this.vCompteur =
+			this.vLeadZero =
+				"";
+		this.ct = 0;
+
+		this.findDataInTemplate();
+		this.setContent();
 
 		this.more.nativeElement.classList.add("hide");
 		this.Jump2Slide(1);
@@ -84,13 +95,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		elem.innerHTML = particle;
 	}
 
-	slideSetUp(): void {
-		this.vClients =
-			this.vProjets =
-			this.vType =
-			this.vCompteur =
-			this.vLeadZero =
-				"";
+	findDataInTemplate(): void {
 		this.slides.forEach((slide: any) => {
 			const s = slide.getElementsByTagName("strong")[0];
 			const h1 = slide.getElementsByTagName("h1")[0];
@@ -101,35 +106,37 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 			this.vLeadZero = this.vLeadZero + "0<br>";
 			this.vCompteur = this.vCompteur + this.ct + "<br>";
 			this.ct = this.ct + 1;
+		});
+	}
 
-			const slclientDiv = this.slclient.nativeElement.children[0];
-			this.affectInnerHtml(
-				slclientDiv as HTMLElement,
-				'<span>client</span> <span class="scroll">' + this.vClients + "</span>"
-			);
-			const slprojetDiv = this.slprojet.nativeElement.children[0];
-			this.affectInnerHtml(
-				slprojetDiv as HTMLElement,
-				'<span>projet</span> <span class="scroll">' + this.vProjets + "</span>"
-			);
-			const sltypeDiv = this.sltype.nativeElement.children[0];
-			this.affectInnerHtml(
-				sltypeDiv as HTMLElement,
-				'<span>type</span> <span class="scroll">' + this.vType + "</span>"
-			);
+	setContent(): void {
+		const slclientDiv = this.slclient.nativeElement.children[0];
+		this.affectInnerHtml(
+			slclientDiv as HTMLElement,
+			'<span>client</span> <span class="scroll">' + this.vClients + "</span>"
+		);
+		const slprojetDiv = this.slprojet.nativeElement.children[0];
+		this.affectInnerHtml(
+			slprojetDiv as HTMLElement,
+			'<span>projet</span> <span class="scroll">' + this.vProjets + "</span>"
+		);
+		const sltypeDiv = this.sltype.nativeElement.children[0];
+		this.affectInnerHtml(
+			sltypeDiv as HTMLElement,
+			'<span>type</span> <span class="scroll">' + this.vType + "</span>"
+		);
 
-			const slcompteur1 = this.slcompteur.nativeElement.querySelectorAll(
-				"b>span:nth-child(2),b>span:nth-child(1)"
-			);
-			Array.from(slcompteur1).forEach((ele: any) => {
-				this.affectInnerHtml(ele, this.vLeadZero);
-			});
-			const slcompteur2 = this.slcompteur.nativeElement.querySelectorAll(
-				"b>span:nth-child(3)"
-			);
-			Array.from(slcompteur2).forEach((ele: any) => {
-				this.affectInnerHtml(ele, this.vCompteur);
-			});
+		const slcompteur1 = this.slcompteur.nativeElement.querySelectorAll(
+			"b>span:nth-child(2),b>span:nth-child(1)"
+		);
+		Array.from(slcompteur1).forEach((ele: any) => {
+			this.affectInnerHtml(ele, this.vLeadZero);
+		});
+		const slcompteur2 = this.slcompteur.nativeElement.querySelectorAll(
+			"b>span:nth-child(3)"
+		);
+		Array.from(slcompteur2).forEach((ele: any) => {
+			this.affectInnerHtml(ele, this.vCompteur);
 		});
 	}
 
