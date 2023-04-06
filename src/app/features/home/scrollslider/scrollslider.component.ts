@@ -194,7 +194,7 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 
 	SwitchSlider(): void {
 		this.more.nativeElement.classList.add("hide");
-		const SlCible = this.slides[this.CurrSl] as HTMLDivElement;
+		const SlCible = this.slides[this.CurrSl - 1] as HTMLDivElement;
 		SlCible.style.zIndex = this.Zindex.toString();
 		this.slcontent.nativeElement.style.zIndex = (this.Zindex + 20).toString();
 		const CibleScrollLine = (this.CurrSl - 1) * 18;

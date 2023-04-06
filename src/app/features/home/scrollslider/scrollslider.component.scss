@@ -10,7 +10,7 @@
 }
 
 #slider {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -73,7 +73,7 @@
 #slcontent > div {
 	display: table-row;
 	transform: translateY(50px);
-	opacity: 0;
+	//opacity: 0;
 }
 #slcontent > div > div {
 	display: table-cell;
