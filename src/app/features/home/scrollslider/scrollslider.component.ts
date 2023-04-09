@@ -8,7 +8,7 @@ import {
 	OnInit,
 	ViewChild,
 } from "@angular/core";
-import { gsap, Power4, Expo } from "gsap";
+import { gsap, Power4, Expo, TweenMax } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 @Component({
 	selector: "app-scrollslider",
@@ -199,14 +199,21 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		this.slcontent.nativeElement.style.zIndex = (this.Zindex + 20).toString();
 		const CibleScrollLine = (this.CurrSl - 1) * 18;
 		const CibleScrollCompteur = (this.CurrSl - 1) * 180;
+
+		const divs = [];
+		divs.push(this.slcontent.nativeElement.children[0]);
+		divs.push(this.slcontent.nativeElement.children[1]);
+		divs.push(this.slcontent.nativeElement.children[2]);
+		divs.push(this.slcontent.nativeElement.children[3]);
+		divs.push(this.slcontent.nativeElement.children[4]);
 		if (this.CurrSl == 1) {
-			gsap.to(this.slcontent, 0.5, {
+			gsap.to(divs, 0.5, {
 				y: "50px",
 				opacity: 0,
 				ease: Power4.easeOut,
 			}); //Oculta filas y contador
 		} else {
-			gsap.to(this.slcontent.nativeElement, {
+			gsap.to(divs, 1, {
 				y: "0px",
 				opacity: 1,
 				ease: Power4.easeOut,
@@ -216,26 +223,28 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 
 		gsap.fromTo(
 			SlCible.children[0].childNodes[0],
+			1,
 			{ y: "0px", ease: Power4.easeOut },
 			{ y: this.VisOut }
 		); //máscara antigua visual
 		gsap.fromTo(
 			SlCible.children[0].childNodes[0],
+			1,
 			{ y: this.VisOrigine, ease: Power4.easeOut },
 			{ y: this.VisOut }
 		); //póster nuevo visual
-		gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), {
+		gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), 0.6, {
 			scrollTo: { y: CibleScrollLine, x: 0 },
 			ease: Expo.easeOut,
 			stagger: 0.1,
 		}); //desplazar las líneas
-		gsap.to(this.slcompteur.nativeElement.querySelectorAll("span"), {
+		gsap.to(this.slcompteur.nativeElement.querySelectorAll("span"), 0.6, {
 			scrollTo: { y: CibleScrollCompteur, x: 0 },
 			ease: Expo.easeOut,
 			stagger: 0.1,
 		}); //desplazar el contador
 		//panel de cambio
-		gsap.to(SlCible, {
+		gsap.to(SlCible, 1.1, {
 			width: "100%",
 			onComplete: () => {
 				if (SlCible.getElementsByTagName("a").length) {
