@@ -207,44 +207,66 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		divs.push(this.slcontent.nativeElement.children[3]);
 		divs.push(this.slcontent.nativeElement.children[4]);
 		if (this.CurrSl == 1) {
-			gsap.to(divs, 0.5, {
+			gsap.to(divs, {
+				duration: 0.5,
 				y: "50px",
 				opacity: 0,
-				ease: Power4.easeOut,
+				ease: "power4.out",
 			}); //Oculta filas y contador
 		} else {
-			gsap.to(divs, 1, {
+			gsap.to(divs, {
+				duration: 1,
 				y: "0px",
 				opacity: 1,
-				ease: Power4.easeOut,
+				ease: "power4.out",
 				stagger: 0.05,
 			}); //Mostrar líneas y contador
 		}
 
 		gsap.fromTo(
 			SlCible.children[0].childNodes[0],
-			1,
-			{ y: "0px", ease: Power4.easeOut },
-			{ y: this.VisOut }
+			{
+				duration: 1,
+				y: "0px",
+				ease: "power4.out",
+			},
+			{
+				duration: 1,
+				y: this.VisOut,
+			}
 		); //máscara antigua visual
 		gsap.fromTo(
 			SlCible.children[0].childNodes[0],
-			1,
-			{ y: this.VisOrigine, ease: Power4.easeOut },
-			{ y: this.VisOut }
+			{
+				duration: 1,
+				y: this.VisOrigine,
+				ease: "power4.out",
+			},
+			{
+				duration: 1,
+				y: "0px",
+			}
 		); //póster nuevo visual
-		gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), 0.6, {
+		// gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), 0.6, {
+		// 	scrollTo: { y: CibleScrollLine, x: 0 },
+		// 	ease: Expo.easeOut,
+		// 	stagger: 0.1,
+		// }); //desplazar las líneas
+		gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), {
+			duration: 0.6,
 			scrollTo: { y: CibleScrollLine, x: 0 },
-			ease: Expo.easeOut,
+			ease: "expo.out",
 			stagger: 0.1,
 		}); //desplazar las líneas
-		gsap.to(this.slcompteur.nativeElement.querySelectorAll("span"), 0.6, {
+		gsap.to(this.slcompteur.nativeElement.querySelectorAll("span"), {
+			duration: 0.6,
 			scrollTo: { y: CibleScrollCompteur, x: 0 },
-			ease: Expo.easeOut,
+			ease: "expo.out",
 			stagger: 0.1,
 		}); //desplazar el contador
 		//panel de cambio
-		gsap.to(SlCible, 1.1, {
+		gsap.to(SlCible, {
+			duration: 1.1,
 			width: "100%",
 			onComplete: () => {
 				if (SlCible.getElementsByTagName("a").length) {
