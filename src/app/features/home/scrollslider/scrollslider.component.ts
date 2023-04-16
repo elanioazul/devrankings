@@ -7,6 +7,7 @@ import {
 	Inject,
 	OnInit,
 	ViewChild,
+	ViewEncapsulation,
 } from "@angular/core";
 import { gsap, Power4, Expo, TweenMax } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -14,6 +15,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 	selector: "app-scrollslider",
 	templateUrl: "./scrollslider.component.html",
 	styleUrls: ["./scrollslider.component.scss"],
+	encapsulation: ViewEncapsulation.None,
 })
 export class ScrollsliderComponent implements OnInit, AfterViewInit {
 	@HostListener("wheel", ["$event"])
