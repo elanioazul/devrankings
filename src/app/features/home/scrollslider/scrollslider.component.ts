@@ -249,11 +249,6 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 				y: "0px",
 			}
 		); //póster nuevo visual
-		// gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), 0.6, {
-		// 	scrollTo: { y: CibleScrollLine, x: 0 },
-		// 	ease: Expo.easeOut,
-		// 	stagger: 0.1,
-		// }); //desplazar las líneas
 		gsap.to(this.slcontent.nativeElement.querySelectorAll(".scroll"), {
 			duration: 0.6,
 			scrollTo: { y: CibleScrollLine, x: 0 },
