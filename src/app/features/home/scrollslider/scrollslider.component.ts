@@ -281,8 +281,8 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 					this.more.nativeElement.classList.remove("hide");
 				} //ocultar el + si no hay enlace
 				this.slides.forEach((element: any, index) => {
-					if (index !== this.CurrSl) {
-						element.children[0].style.setProperty("width", "0%");
+					if (index == this.CurrSl) {
+						element.children[0].style.setProperty("width", "100%");
 					}
 				});
 				this.AnimInProgress = false;
