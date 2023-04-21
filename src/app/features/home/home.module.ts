@@ -6,18 +6,18 @@ import { HomeComponent } from "./home.component";
 import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 import { CardModule } from "@shared/components/card";
 import { GridModule } from "@shared/components/layouts/grid";
-import { WhatwedoComponent } from "./whatwedo/whatwedo.component";
-import { ScrollsliderComponent } from "./scrollslider/scrollslider.component";
-import { KeyPointListComponent } from "./key-points/keypoint-list.component";
-import { KeiPointComponent } from "./key-points/keypoint/keypoint.component";
+import { WhatwedoComponent } from "./components/whatwedo/whatwedo.component";
+import { ScrollsliderComponent } from "./components/scrollslider/scrollslider.component";
+import { KeypointListComponent } from "./components/keypoint-list/keypoint-list.component";
+import { KeypointListItemComponent } from "./components/keypoint-list-item/keypoint-list-item.component";
 
 @NgModule({
 	declarations: [
 		HomeComponent,
 		WhatwedoComponent,
 		ScrollsliderComponent,
-		KeyPointListComponent,
-		KeiPointComponent,
+		KeypointListComponent,
+		KeypointListItemComponent,
 	],
 	imports: [
 		CommonModule,
