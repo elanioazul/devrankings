@@ -1,1 +1,7 @@
-<p>keypoint-list works!</p>
+<app-grid>
+	<app-keypoint-list-item
+		*ngFor="let keyPoint of keyPoints"
+		[keyPoint]="keyPoint"
+	>
+	</app-keypoint-list-item>
+</app-grid>

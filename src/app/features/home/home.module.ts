@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
-import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
+//import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 import { CardModule } from "@shared/components/card";
 import { GridModule } from "@shared/components/layouts/grid";
 import { WhatwedoComponent } from "./components/whatwedo/whatwedo.component";
@@ -22,10 +22,16 @@ import { KeypointListItemComponent } from "./components/keypoint-list-item/keypo
 	imports: [
 		CommonModule,
 		HomeRoutingModule,
-		BaseCanvasModule,
-		CoorpFrameModule,
+		// BaseCanvasModule,
+		// CoorpFrameModule,
 		CardModule,
 		GridModule,
+	],
+	exports: [
+		WhatwedoComponent,
+		ScrollsliderComponent,
+		KeypointListComponent,
+		KeypointListItemComponent,
 	],
 })
 export class HomeModule {}

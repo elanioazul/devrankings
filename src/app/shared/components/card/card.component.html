@@ -1,1 +1,12 @@
-<p>card works!</p>
+<div class="carta">
+	<div>
+		<ng-content select="[card-icon]"></ng-content>
+	</div>
+	<h3>
+		<ng-content select="[card-title]"></ng-content>
+	</h3>
+	<p>
+		<ng-content select="[card-desc]"></ng-content>
+	</p>
+	<button aria-label="close">✕</button>
+</div>

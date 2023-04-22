@@ -1,0 +1,52 @@
+@import "../../../../theme/theme";
+h3 {
+  font-weight: 800;
+  color: $yellowball;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+}
+
+svg {
+  fill: hsl(0, 0%, 50%);
+  width: 62px;
+  height: 62px;
+}
+
+.carta {
+  color: $white;
+  background-color: $hornygreenish;
+  contain: layout;
+  overflow: hidden;
+  position: relative;
+  transition: scale 0.1s;
+  &:not(.featured):hover {
+    scale: 1.033;
+  }
+  &.featured {
+    order: -1;
+    grid-column: 1 / -1;
+    font-size: 133%;
+    svg {
+      width: 100px;
+      height: 100px;
+      fill: yellow;
+    }
+    button {
+      display: block;
+    }
+  }
+  button {
+    display: none;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    border: 0;
+    background: none;
+    color: white;
+    &:hover,
+    &:focus {
+      color: red;
+    }
+  }
+}
