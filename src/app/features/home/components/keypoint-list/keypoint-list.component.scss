@@ -1,0 +1,68 @@
+@import "../../../../../theme/theme";
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0s;
+  }
+}
+
+.grid {
+  background-color: $hornygreenish;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    // fluid columns, but max out at 3
+    minmax(min(100%, max(10rem, 100%/4)), 1fr)
+  );
+  gap: 2.5rem;
+  padding: 15px;
+
+  // ALTERNATIVE BY COMMENT/UNCOMMENT FOLLOWING LINE
+  &:has(.item.featured) {
+    grid-template-columns: repeat(5, 1fr);
+    .item:not(.featured) {
+      :not(h2) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.item {
+  color: $white;
+  background-color: $hornygreenish;
+  contain: layout;
+  overflow: hidden;
+  position: relative;
+  transition: scale 0.1s;
+  &:not(.featured):hover {
+    scale: 1.033;
+  }
+  &.featured {
+    order: -1;
+    grid-column: 1 / -1;
+    font-size: 133%;
+  }
+}
+
+:host ::ng-deep .item .carta div button {
+  display: none;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  border: 0;
+  background: none;
+  color: white;
+  &:hover,
+  &:focus {
+    color: red;
+  }
+}
+
+:host ::ng-deep .item.featured .carta div button {
+  display: block;
+}
+
+

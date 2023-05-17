@@ -10,35 +10,43 @@ const routes: Routes = [
 	{
 		path: "home",
 		loadChildren: () =>
-			import("./features/home/home.module").then((m) => m.HomeModule),
+			import("./pages/public/landing-page/landing-page.module").then(
+				(m) => m.LandingPageModule
+			),
 	},
 	{
 		path: "rankings",
 		loadChildren: () =>
-			import("./features/ranking/ranking.module").then((m) => m.RankingModule),
+			import("./pages/public/rankings-page/rankings-page.module").then(
+				(m) => m.RankingsPageModule
+			),
 	},
 	{
 		path: "tablon",
 		loadChildren: () =>
-			import("./features/tablon/tablon.module").then((m) => m.TablonModule),
+			import("./pages/public/tablon-page/tablon-page.module").then(
+				(m) => m.TablonPageModule
+			),
 	},
 	{
 		path: "reglas",
 		loadChildren: () =>
-			import("./features/documents/documents.module").then(
-				(m) => m.DocumentsModule
+			import("./pages/public/reglas-page/reglas-page.module").then(
+				(m) => m.ReglasPageModule
 			),
 	},
 	{
 		path: "login",
 		loadChildren: () =>
-			import("./features/signin/signin.module").then((m) => m.SigninModule),
+			import("./pages/public/signin-page/signin-page.module").then(
+				(m) => m.SigninPageModule
+			),
 	},
 	{
 		path: "**",
 		loadChildren: () =>
-			import("./features/notfound/notfound.module").then(
-				(m) => m.NotfoundModule
+			import("./pages/notfound-page/notfound-page.module").then(
+				(m) => m.NotfoundPageModule
 			),
 	},
 ];

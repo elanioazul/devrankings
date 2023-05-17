@@ -1,0 +1,10 @@
+<app-card class="carta">
+	<svg card-icon>
+		<use
+			[attr.xlink:href]="'assets/sprites/sprite.svg#' + keyPoint.icon"
+			[attr.href]="'assets/sprites/sprite.svg#' + keyPoint.icon"
+		></use>
+	</svg>
+	<ng-container card-title>{{ keyPoint.title }}</ng-container>
+	<ng-container card-desc>{{ keyPoint.desc }}</ng-container>
+</app-card>

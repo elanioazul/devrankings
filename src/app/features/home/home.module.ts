@@ -3,17 +3,35 @@ import { CommonModule } from "@angular/common";
 
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
-import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
-import { WhatwedoComponent } from "./whatwedo/whatwedo.component";
-import { ScrollsliderComponent } from "./scrollslider/scrollslider.component";
+//import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
+import { CardModule } from "@shared/components/card";
+import { GridModule } from "@shared/components/layouts/grid";
+import { WhatwedoComponent } from "./components/whatwedo/whatwedo.component";
+import { ScrollsliderComponent } from "./components/scrollslider/scrollslider.component";
+import { KeypointListComponent } from "./components/keypoint-list/keypoint-list.component";
+import { KeypointListItemComponent } from "./components/keypoint-list-item/keypoint-list-item.component";
 
 @NgModule({
-	declarations: [HomeComponent, WhatwedoComponent, ScrollsliderComponent],
+	declarations: [
+		HomeComponent,
+		WhatwedoComponent,
+		ScrollsliderComponent,
+		KeypointListComponent,
+		KeypointListItemComponent,
+	],
 	imports: [
 		CommonModule,
 		HomeRoutingModule,
-		BaseCanvasModule,
-		CoorpFrameModule,
+		// BaseCanvasModule,
+		// CoorpFrameModule,
+		CardModule,
+		GridModule,
+	],
+	exports: [
+		WhatwedoComponent,
+		ScrollsliderComponent,
+		KeypointListComponent,
+		KeypointListItemComponent,
 	],
 })
 export class HomeModule {}
