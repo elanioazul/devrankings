@@ -29,7 +29,7 @@ export class KeypointListComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		this.items.forEach((div) => console.log(div));
-		const cards = document.querySelectorAll(".carta");
+		const cards = document.querySelectorAll(".item");
 		const closeButtons = document.querySelectorAll("button");
 
 		cards.forEach((card, i) => {

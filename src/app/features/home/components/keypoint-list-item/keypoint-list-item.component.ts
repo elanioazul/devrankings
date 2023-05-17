@@ -4,7 +4,7 @@ import { IKeyPoint } from "@features/home/interfaces/IkeyPoint";
 	selector: "app-keypoint-list-item",
 	templateUrl: "./keypoint-list-item.component.html",
 	styleUrls: ["./keypoint-list-item.component.scss"],
-	encapsulation: ViewEncapsulation.None,
+	//encapsulation: ViewEncapsulation.None,
 })
 export class KeypointListItemComponent implements OnInit {
 	@Input() keyPoint!: IKeyPoint;
