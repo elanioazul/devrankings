@@ -23,12 +23,10 @@ export class KeypointListComponent implements AfterViewInit {
 	@ViewChild("item") slider!: ElementRef<HTMLDivElement>;
 	@ViewChildren(KeypointListItemComponent, { read: ElementRef })
 	items!: QueryList<KeypointListItemComponent>;
-	//@ViewChildren("div") items!: QueryList<any>
 
 	constructor() {}
 
 	ngAfterViewInit() {
-		this.items.forEach((div) => console.log(div));
 		const cards = document.querySelectorAll(".item");
 		const closeButtons = document.querySelectorAll("button");
 
