@@ -22,14 +22,14 @@ export class InteractiveBallsComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit() {
-		this.mountArtifacts();
+		this.mountNodes();
 
 		this.svgSetUp();
 
 		this.setSimulation();
 	}
 
-	mountArtifacts() {
+	mountNodes() {
 		this.nodes = d3.range(this.numNodes).map(function () {
 			return { radius: Math.random() * 15 + 4 };
 		});
