@@ -15,28 +15,75 @@ export class InteractiveBallsComponent implements OnInit {
 	nodes: any;
 	root: any;
 	force: any;
-	simulation: any;
+	simulation!: d3.Simulation<any, any>;
 	svg: any;
 	quadTree!: d3.Quadtree<any>;
 
 	constructor() {}
 
 	ngOnInit() {
+		this.mountArtifacts();
+
+		this.svgSetUp();
+
+		this.setSimulation();
+	}
+
+	mountArtifacts() {
 		this.nodes = d3.range(this.numNodes).map(function () {
 			return { radius: Math.random() * 15 + 4 };
 		});
 		this.root = this.nodes[0];
 		this.root.radius = 0;
 		this.root.radius.toFixed();
+	}
 
-		this.svg = select(".balls")
+	setSimulation() {
+		this.simulation = d3
+			.forceSimulation()
+			.nodes(this.nodes)
+			.force("charge", (i) => {
+				return i ? 0 : -2000;
+			})
+			.force("center", d3.forceCenter(this.width / 2, this.height / 2))
+			.force(
+				"collision",
+				d3
+					.forceCollide()
+					.strength(0.05)
+					.radius((d: any) => {
+						return d.radius;
+					})
+			)
+			.on("tick", () => this.tick());
+	}
+
+	tick() {
+		this.quadTree = d3.quadtree(this.nodes);
+		let i = 0;
+		let n = this.nodes.length;
+		while (++i < n) this.quadTree.visit(this.collide(this.nodes[i]));
+
+		this.svg
+			.selectAll("circle")
+			.attr("cx", (d: any) => {
+				return d.x;
+			})
+			.attr("cy", (d: any) => {
+				return d.y;
+			});
+	}
+
+	svgSetUp() {
+		this.svg = d3
+			.select(".balls")
 			.attr("width", this.width)
 			.attr("height", this.height)
 			.on("mousemove", (e) => {
 				let coords = d3.pointer(e);
 				this.root.px = coords[0];
 				this.root.py = coords[1];
-				this.simulation.force.resume;
+				this.simulation.restart();
 			});
 
 		this.svg
@@ -48,35 +95,6 @@ export class InteractiveBallsComponent implements OnInit {
 				return d.radius;
 			})
 			.style("fill", "#e3ff37");
-
-		this.simulation = forceSimulation(this.nodes)
-			.force("charge", (i) => {
-				return i ? 0 : -2000;
-			})
-			.force("center", forceCenter(this.width / 2, this.height / 2))
-			.force(
-				"collision",
-				forceCollide()
-					.strength(0.05)
-					.radius((d: any) => {
-						return d.radius;
-					})
-			)
-			.on("tick", () => {
-				this.quadTree = quadtree(this.nodes);
-				let i = 0;
-				let n = this.nodes.length;
-				while (++i < n) this.quadTree.visit(this.collide(this.nodes[i]));
-
-				this.svg
-					.selectAll("circle")
-					.attr("cx", (d: any) => {
-						return d.x;
-					})
-					.attr("cy", (d: any) => {
-						return d.y;
-					});
-			});
 	}
 
 	collide(node: any) {
