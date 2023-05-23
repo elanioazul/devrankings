@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import * as d3 from "d3";
-import { forceSimulation, forceCollide, forceCenter } from "d3-force";
-import { select } from "d3-selection";
-import { quadtree } from "d3-quadtree";
 @Component({
 	selector: "app-interactive-balls",
 	templateUrl: "./interactive-balls.component.html",
@@ -16,7 +13,7 @@ export class InteractiveBallsComponent implements OnInit {
 	root: any;
 	force: any;
 	simulation!: d3.Simulation<any, any>;
-	svg: any;
+	svg!: d3.Selection<any, any, any, any>;
 	quadTree!: d3.Quadtree<any>;
 
 	constructor() {}
@@ -30,7 +27,7 @@ export class InteractiveBallsComponent implements OnInit {
 	}
 
 	mountNodes() {
-		this.nodes = d3.range(this.numNodes).map(function () {
+		this.nodes = d3.range(this.numNodes).map(() => {
 			return { radius: Math.random() * 15 + 4 };
 		});
 		this.root = this.nodes[0];
@@ -47,7 +44,7 @@ export class InteractiveBallsComponent implements OnInit {
 			})
 			.force("center", d3.forceCenter(this.width / 2, this.height / 2))
 			.force(
-				"collision",
+				"collide",
 				d3
 					.forceCollide()
 					.strength(0.05)
@@ -76,7 +73,8 @@ export class InteractiveBallsComponent implements OnInit {
 
 	svgSetUp() {
 		this.svg = d3
-			.select(".balls")
+			.select(".content")
+			.append("svg")
 			.attr("width", this.width)
 			.attr("height", this.height)
 			.on("mousemove", (e) => {
