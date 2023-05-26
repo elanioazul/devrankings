@@ -31,8 +31,15 @@ export class InteractiveBallsComponent implements OnInit {
 				radius: Math.random() * 15 + 4,
 				x: Math.random() * this.width,
 				y: Math.random() * this.height,
+				vx: Math.random() - 0.5,
+				vy: Math.random() - 0.5,
 			};
 		});
+		this.quadTree = d3.quadtree(
+			this.nodes,
+			(d) => d.x,
+			(d) => d.y
+		);
 	}
 
 	setSvg() {
@@ -46,8 +53,8 @@ export class InteractiveBallsComponent implements OnInit {
 			});
 
 		this.nodeElements = this.svg
-			.selectAll("circle")
-			.data(this.nodes.slice(1))
+			.selectAll(".particle")
+			.data(this.nodes)
 			.enter()
 			.append("circle")
 			.attr("class", "particle")
@@ -60,6 +67,10 @@ export class InteractiveBallsComponent implements OnInit {
 	setSimulation() {
 		this.simulation = d3
 			.forceSimulation(this.nodes)
+			.alphaTarget(0.3) // stay hot
+			.velocityDecay(0.1) // low friction
+			.force("x", d3.forceX(this.width / 2).strength(0.001))
+			.force("y", d3.forceY(this.height / 2).strength(0.001))
 			.force(
 				"collide",
 				d3
@@ -68,6 +79,28 @@ export class InteractiveBallsComponent implements OnInit {
 					.radius((d: any) => {
 						return d.radius;
 					})
+			)
+			.force("quadtree", () =>
+				this.quadTree.visit((node, x1, y1, x2, y2) => {
+					if (!node.length) {
+						do {
+							const particle = (node as any).data;
+							const dx = particle.x - (node as any).x;
+							const dy = particle.y - (node as any).y;
+							const distance = Math.sqrt(dx * dx + dy * dy);
+							const minDistance = 2 * 5;
+
+							if (distance < minDistance) {
+								const angle = Math.atan2(dy, dx);
+								const force = (minDistance - distance) / distance;
+
+								particle.vx += Math.cos(angle) * force;
+								particle.vy += Math.sin(angle) * force;
+							}
+						} while ((node = (node as any).next));
+					}
+					return x1 > this.width || y1 > this.height || x2 < 0 || y2 < 0;
+				})
 			)
 			.on("tick", () => {
 				this.nodeElements
@@ -94,18 +127,5 @@ export class InteractiveBallsComponent implements OnInit {
 				});
 			});
 		});
-	}
-
-	runSimulation() {
-		const particles = d3
-			.select(this.chartContainer.nativeElement)
-			.selectAll(".particle");
-		function update() {
-			particles.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y);
-
-			requestAnimationFrame(update);
-		}
-
-		update();
 	}
 }
