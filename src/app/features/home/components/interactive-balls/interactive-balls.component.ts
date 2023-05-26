@@ -6,8 +6,8 @@ import * as d3 from "d3";
 	styleUrls: ["./interactive-balls.component.scss"],
 })
 export class InteractiveBallsComponent implements OnInit {
-	width = 960;
-	height = 500;
+	width: number;
+	height: number;
 	numNodes = 200;
 	nodes: any;
 	nodeElements: any;
@@ -17,7 +17,10 @@ export class InteractiveBallsComponent implements OnInit {
 
 	@ViewChild("chartContainer", { static: true }) chartContainer!: ElementRef;
 
-	constructor() {}
+	constructor() {
+		this.height = window.innerHeight;
+		this.width = window.innerWidth;
+	}
 
 	ngOnInit() {
 		this.createParticles();
