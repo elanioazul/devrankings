@@ -77,10 +77,10 @@ export class InteractiveBallsComponent implements OnInit {
 
 		d3.select(this.chartContainer.nativeElement).on("mousemove", (e) => {
 			const [mouseX, mouseY] = d3.pointer(e);
-			this.simulation.force("attract", () => {
+			this.simulation.force("repel", () => {
 				this.nodes.forEach((particle: any) => {
-					const dx = mouseX - particle.x;
-					const dy = mouseY - particle.y;
+					const dx = particle.x - mouseX;
+					const dy = particle.y - mouseY;
 					const distance = Math.sqrt(dx * dx + dy * dy);
 					const minDistance = 100;
 
