@@ -10,6 +10,7 @@ import { WhatwedoComponent } from "./components/whatwedo/whatwedo.component";
 import { ScrollsliderComponent } from "./components/scrollslider/scrollslider.component";
 import { KeypointListComponent } from "./components/keypoint-list/keypoint-list.component";
 import { KeypointListItemComponent } from "./components/keypoint-list-item/keypoint-list-item.component";
+import { InteractiveBallsComponent } from "./components/interactive-balls/interactive-balls.component";
 
 @NgModule({
 	declarations: [
@@ -18,6 +19,7 @@ import { KeypointListItemComponent } from "./components/keypoint-list-item/keypo
 		ScrollsliderComponent,
 		KeypointListComponent,
 		KeypointListItemComponent,
+		InteractiveBallsComponent,
 	],
 	imports: [
 		CommonModule,
@@ -32,6 +34,7 @@ import { KeypointListItemComponent } from "./components/keypoint-list-item/keypo
 		ScrollsliderComponent,
 		KeypointListComponent,
 		KeypointListItemComponent,
+		InteractiveBallsComponent,
 	],
 })
 export class HomeModule {}
