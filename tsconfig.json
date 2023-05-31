@@ -23,6 +23,8 @@
 		"paths": {
 			"@theme/*": ["src/app/theme/*"],
 			"@features/*": ["src/app/features/*"],
+			"@core/*": ["src/app/core/*"],
+			"@pages/*": ["src/app/pages/*"],
 			"@shared/*": ["src/app/shared/*"],
 			"@environment/*": ["src/environments/*"]
 		},
