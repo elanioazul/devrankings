@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import * as d3 from "d3";
+import { Store, select } from "@ngrx/store";
+import { selectFeatureCount } from "@core/store/device-size/device-size.selector";
 @Component({
 	selector: "app-interactive-balls",
 	templateUrl: "./interactive-balls.component.html",
@@ -17,7 +19,9 @@ export class InteractiveBallsComponent implements OnInit {
 
 	@ViewChild("chartContainer", { static: true }) chartContainer!: ElementRef;
 
-	constructor() {
+	constructor(
+		private store: Store /*private appStore: Store<DeviceSizeState>*/
+	) {
 		this.height = window.innerHeight;
 		this.width = window.innerWidth;
 	}
@@ -26,6 +30,11 @@ export class InteractiveBallsComponent implements OnInit {
 		this.createParticles();
 		this.setSvg();
 		this.setSimulation();
+
+		let diviceSize$ = this.store.pipe(select(selectFeatureCount));
+		diviceSize$.subscribe((data) => {
+			console.log(data);
+		});
 	}
 
 	createParticles() {

@@ -1,30 +1,42 @@
 import { Injectable } from "@angular/core";
 import { setDeviceSize } from "@core/store/device-size/device-size.action";
-import { fromEvent, Observable } from "rxjs";
-import { debounceTime, map, startWith } from "rxjs/operators";
+import { fromEvent, Observable, merge } from "rxjs";
+import { debounceTime, map, startWith, tap } from "rxjs/operators";
 import { SCREEN_SIZE } from "@core/enums/screen-size.enum";
 import { BREAKPOINTS } from "@core/constants/breakpoints";
 import { IDeviceSize } from "@core/interfaces/device-size";
+import { Store } from "@ngrx/store";
 @Injectable({
 	providedIn: "root",
 })
 export class ScreenSizeService {
-	store: any;
-	constructor() {}
+	constructor(private store: Store) {}
 
-	public getScreenSizeWhenLoaded(): Observable<IDeviceSize> {
-		return fromEvent(window, "load").pipe(
-			debounceTime(200),
-			startWith(null),
-			map(() => this.setDeviceSize(this.calculateScreenSize()))
+	public getDeviceSize(): void {
+		let screenDetailsResizing$: Observable<IDeviceSize> =
+			this.getScreenSizeWhenResizing();
+		let screenDetailsLoading$: Observable<IDeviceSize> =
+			this.getScreenSizeWhenLoaded();
+		merge(screenDetailsResizing$, screenDetailsLoading$).subscribe(
+			(data: any) => {
+				this.store.dispatch(setDeviceSize({ deviceSize: data }));
+			}
 		);
 	}
 
-	public getScreenSizeWhenResizing(): Observable<IDeviceSize> {
+	private getScreenSizeWhenLoaded(): Observable<IDeviceSize> {
+		return fromEvent(window, "load").pipe(
+			debounceTime(200),
+			startWith(null),
+			map(() => this.calculateScreenSize())
+		);
+	}
+
+	private getScreenSizeWhenResizing(): Observable<IDeviceSize> {
 		return fromEvent(window, "resize").pipe(
 			debounceTime(200),
 			startWith(null),
-			map(() => this.setDeviceSize(this.calculateScreenSize()))
+			map(() => this.calculateScreenSize())
 		);
 	}
 
@@ -72,9 +84,5 @@ export class ScreenSizeService {
 				},
 			};
 		}
-	}
-
-	private setDeviceSize(screenProps: any): any {
-		this.store.dispatch(setDeviceSize({ deviceSize: screenProps }));
 	}
 }
