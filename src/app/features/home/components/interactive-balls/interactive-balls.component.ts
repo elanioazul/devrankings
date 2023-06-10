@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import * as d3 from "d3";
 import { Store, select } from "@ngrx/store";
 import { selectFeatureCount } from "@core/store/device-size/device-size.selector";
+import { DeviceSizeState } from "@core/store/device-size";
 @Component({
 	selector: "app-interactive-balls",
 	templateUrl: "./interactive-balls.component.html",
@@ -31,10 +32,14 @@ export class InteractiveBallsComponent implements OnInit {
 		this.setSvg();
 		this.setSimulation();
 
-		let diviceSize$ = this.store.pipe(select(selectFeatureCount));
-		diviceSize$.subscribe((data) => {
-			console.log(data);
-		});
+		// let diviceSize$ = this.store.pipe(select(selectFeatureCount));
+		// diviceSize$.subscribe((data: any) => {
+		//   if (data) {
+		//     this.width = + data.deviceSize.innerWidth.substring(0, data.deviceSize.innerWidth.length-2)
+		//     this.height = + data.deviceSize.innerHeight.substring(0, data.deviceSize.innerHeight.length-2)
+		//     this.setSvgSize(this.width, this.height)
+		//   }
+		// });
 	}
 
 	createParticles() {
@@ -54,15 +59,18 @@ export class InteractiveBallsComponent implements OnInit {
 		);
 	}
 
+	setSvgSize(width: number, height: number): void {
+		this.svg.attr("width", width).attr("height", height);
+	}
+
 	setSvg() {
 		this.svg = d3
 			.select(this.chartContainer.nativeElement)
 			.append("svg")
-			.attr("width", this.width)
-			.attr("height", this.height)
 			.on("mousemove", (e) => {
 				this.simulation.restart();
 			});
+		this.setSvgSize(this.width, this.height);
 
 		this.nodeElements = this.svg
 			.selectAll(".particle")
