@@ -11,7 +11,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { reducers, metaReducers } from "@core/store";
-import { ScreenSizeService } from "@core/services";
+import { ScreenSizeService, ScrollwindowService } from "@core/services";
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
@@ -27,7 +27,7 @@ import { ScreenSizeService } from "@core/services";
 		NavbarModule,
 		NgbModule,
 	],
-	providers: [ScreenSizeService],
+	providers: [ScreenSizeService, ScrollwindowService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-custom navbar-mainbg">
+<nav #autohideNav class="autohideNav navbar navbar-expand-custom navbar-mainbg">
 	<app-logo class="logo"></app-logo>
 	<button
 		class="navbar-toggler"
@@ -6,7 +6,7 @@
 		aria-controls="navbarSupportedContent"
 		aria-expanded="false"
 		aria-label="Toggle navigation"
-		(click)="openMenu($event)"
+		(click)="toggleMenu($event)"
 	>
 		<fa-icon style="font-size: 20px; color: white" [icon]="faBars"></fa-icon>
 	</button>
