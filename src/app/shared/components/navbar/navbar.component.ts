@@ -4,6 +4,7 @@ import {
 	ElementRef,
 	OnInit,
 	ViewChild,
+	Renderer2,
 } from "@angular/core";
 import {
 	faHouse,
@@ -16,6 +17,8 @@ import {
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { Inject } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
+import { ScrollwindowService } from "@core/services";
+import { Subject, takeUntil } from "rxjs";
 
 export interface INavBarMenuLinkProps {
 	to: string;
@@ -44,7 +47,11 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	@ViewChild("horiSelector") horiSelector!: ElementRef<HTMLDivElement>;
 	@ViewChild("unsortedList") unsortedList!: ElementRef<HTMLUListElement>;
 
+	autonav!: HTMLElement | null;
+
 	activeTab!: HTMLLIElement | null;
+
+	private unSubscribe = new Subject<void>();
 
 	navOptions: INavBarMenuLinkProps[] = [
 		{ to: "/home", label: "Home", icon: faHouse, isDefault: true },
@@ -64,7 +71,11 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 		{ to: "/login", label: "Login", icon: faUserCircle, isDefault: false },
 	];
 
-	constructor(@Inject(DOCUMENT) private _document: Document) {}
+	constructor(
+		@Inject(DOCUMENT) private _document: Document,
+		private scrollService: ScrollwindowService,
+		private renderer: Renderer2
+	) {}
 
 	ngOnInit(): void {}
 
@@ -72,6 +83,39 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 		setTimeout(() => {
 			this.test();
 		}, 300);
+		this.navbarHideControl();
+	}
+
+	ngOnDestroy() {
+		this.unSubscribe.next();
+		this.unSubscribe.complete();
+	}
+
+	navbarHideControl(): void {
+		this.autonav = this._document.querySelector(".autohideNav");
+		let autonavHeight = this.autonav?.offsetHeight;
+
+		let last_scroll_top = 0;
+		this.scrollService
+			.getScrollYWindoEvent()
+			.pipe(takeUntil(this.unSubscribe))
+			.subscribe((data: any) => {
+				if (autonavHeight && data > autonavHeight && this.autonav) {
+					if (data < last_scroll_top && data) {
+						this.renderer.removeClass(this.autonav, "scrolled-down");
+						this.renderer.addClass(this.autonav, "scrolled-up");
+						this.navbarSupportedContent.nativeElement.classList.contains(
+							"opened"
+						)
+							? this.closeMenu()
+							: null;
+					} else {
+						this.renderer.removeClass(this.autonav, "scrolled-up");
+						this.renderer.addClass(this.autonav, "scrolled-down");
+					}
+					last_scroll_top = data;
+				}
+			});
 	}
 
 	test(): void {
@@ -143,7 +187,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	openMenu(event: any): void {
+	toggleMenu(event: any): void {
 		if (
 			!this.navbarSupportedContent.nativeElement.classList.contains("opened")
 		) {
@@ -166,20 +210,24 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 				this.unsortedList.nativeElement.style.width = "100%";
 			}, 0);
 		} else {
-			this.navbarSupportedContent.nativeElement.style.height = "0px";
-
-			this.navbarSupportedContent.nativeElement.addEventListener(
-				"transitionend",
-				() => {
-					this.navbarSupportedContent.nativeElement.classList.remove("opened");
-				},
-				{
-					once: true,
-				}
-			);
+			this.closeMenu();
 		}
 		setTimeout(() => {
 			this.test();
 		}, 300);
+	}
+
+	closeMenu(): void {
+		this.navbarSupportedContent.nativeElement.style.height = "0px";
+
+		this.navbarSupportedContent.nativeElement.addEventListener(
+			"transitionend",
+			() => {
+				this.navbarSupportedContent.nativeElement.classList.remove("opened");
+			},
+			{
+				once: true,
+			}
+		);
 	}
 }

@@ -113,6 +113,19 @@ fa-icon {
     left: -25px;
 }
 
+.scrolled-down{
+  transform:translateY(-100%); transition: all 0.3s ease-in-out;
+  transition: top 0.2s ease-in-out;
+}
+.scrolled-up{
+  transform:translateY(0); transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.2s ease-in-out;
+  z-index: 1000;
+}
+
 @media(min-width: 992px){
 	.navbar-expand-custom {
 	    -ms-flex-flow: row nowrap;
@@ -133,6 +146,18 @@ fa-icon {
 	    -ms-flex-preferred-size: auto;
 	    flex-basis: auto;
 	}
+  .scrolled-down{
+    transform:translateY(-100%); transition: all 0.3s ease-in-out;
+    transition: top 0.2s ease-in-out;
+  }
+  .scrolled-up{
+    transform:translateY(0); transition: all 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.2s ease-in-out;
+    z-index: 1000;
+  }
 }
 
 
