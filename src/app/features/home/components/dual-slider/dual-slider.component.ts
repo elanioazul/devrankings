@@ -16,43 +16,62 @@ export class DualSliderComponent implements OnInit {
 	leftSlide!: ElementRef<HTMLDivElement>;
 	@ViewChild("rightSlide", { static: true })
 	rightSlide!: ElementRef<HTMLDivElement>;
+	@ViewChild("box", { static: true })
+	box!: ElementRef<HTMLDivElement>;
 
 	constructor(private renderer: Renderer2) {}
 
 	ngOnInit(): void {}
 
 	onMouseLeave(slide: string): void {
-		slide === "rightSlide" ? this.reduceRight() : this.reduceLeft();
+		slide === "right" ? this.reduceRight() : this.reduceLeft();
 	}
 
 	reduceRight(): void {
 		this.renderer.removeClass(
 			this.rightSlide.nativeElement,
-			"container--right-is-hovered"
+			"box__one-half--right-is-hovered"
+		);
+		this.renderer.removeClass(
+			this.leftSlide.nativeElement,
+			"box__one-half--left-being-right-hovered"
 		);
 	}
 
 	reduceLeft(): void {
 		this.renderer.removeClass(
 			this.leftSlide.nativeElement,
-			"container--left-is-hovered"
+			"box__one-half--left-is-hovered"
+		);
+		this.renderer.removeClass(
+			this.rightSlide.nativeElement,
+			"box__one-half--right-being-left-hovered"
 		);
 	}
 
 	onMouseEnter(slide: string): void {
-		slide === "rightSlide" ? this.increaseRight() : this.increaseLeft();
+		slide === "right" ? this.increaseRight() : this.increaseLeft();
 	}
 
 	increaseRight(): void {
 		this.renderer.addClass(
 			this.rightSlide.nativeElement,
-			"container--right-is-hovered"
+			"box__one-half--right-is-hovered"
+		);
+		this.renderer.addClass(
+			this.leftSlide.nativeElement,
+			"box__one-half--left-being-right-hovered"
 		);
 	}
+
 	increaseLeft(): void {
 		this.renderer.addClass(
 			this.leftSlide.nativeElement,
-			"container--left-is-hovered"
+			"box__one-half--left-is-hovered"
+		);
+		this.renderer.addClass(
+			this.rightSlide.nativeElement,
+			"box__one-half--right-being-left-hovered"
 		);
 	}
 }
