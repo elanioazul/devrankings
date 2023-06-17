@@ -18,6 +18,10 @@ export class DualSliderComponent implements OnInit {
 	rightSlide!: ElementRef<HTMLDivElement>;
 	@ViewChild("box", { static: true })
 	box!: ElementRef<HTMLDivElement>;
+	@ViewChild("leftHeading", { static: true })
+	leftHeading!: ElementRef<HTMLDivElement>;
+	@ViewChild("rightHeading", { static: true })
+	rightHeading!: ElementRef<HTMLDivElement>;
 
 	constructor(private renderer: Renderer2) {}
 
@@ -36,6 +40,10 @@ export class DualSliderComponent implements OnInit {
 			this.leftSlide.nativeElement,
 			"box__one-half--left-being-right-hovered"
 		);
+		this.renderer.removeClass(
+			this.rightHeading.nativeElement,
+			"box__heading--transitioned"
+		);
 	}
 
 	reduceLeft(): void {
@@ -46,6 +54,10 @@ export class DualSliderComponent implements OnInit {
 		this.renderer.removeClass(
 			this.rightSlide.nativeElement,
 			"box__one-half--right-being-left-hovered"
+		);
+		this.renderer.removeClass(
+			this.leftHeading.nativeElement,
+			"box__heading--transitioned"
 		);
 	}
 
@@ -62,6 +74,10 @@ export class DualSliderComponent implements OnInit {
 			this.leftSlide.nativeElement,
 			"box__one-half--left-being-right-hovered"
 		);
+		this.renderer.addClass(
+			this.rightHeading.nativeElement,
+			"box__heading--transitioned"
+		);
 	}
 
 	increaseLeft(): void {
@@ -72,6 +88,10 @@ export class DualSliderComponent implements OnInit {
 		this.renderer.addClass(
 			this.rightSlide.nativeElement,
 			"box__one-half--right-being-left-hovered"
+		);
+		this.renderer.addClass(
+			this.leftHeading.nativeElement,
+			"box__heading--transitioned"
 		);
 	}
 }

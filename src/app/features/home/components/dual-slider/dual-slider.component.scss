@@ -22,7 +22,7 @@
 
   &__heading {
     color: #fff;
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 20%;
     transform: translateX(-50%);
@@ -45,6 +45,10 @@
       bottom: -8px;
       background: #fff;
       transition: 500ms all ease-in-out;
+    }
+
+    &--transitioned::after {
+      width: 100%;
     }
   }
 

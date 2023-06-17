@@ -1,20 +1,22 @@
 <div #box class="box">
 	<div
 		#leftSlide
-		class="box__one-half box__one-half--left"
+		class="flex flex-column justify-content-start align-content-center box__one-half box__one-half--left"
 		(mouseenter)="onMouseEnter('left')"
 		(mouseleave)="onMouseLeave('left')"
 	>
-		<h1 class="box__heading">Incríbete en un ránking</h1>
+		<h1 #leftHeading class="box__heading">Incríbete en un ránking</h1>
 		<a href="#" class="box__cta">Vamos Rafa!</a>
 	</div>
 	<div
 		#rightSlide
-		class="box__one-half box__one-half--right"
+		class="flex flex-column justify-content-start align-content-center box__one-half box__one-half--right"
 		(mouseenter)="onMouseEnter('right')"
 		(mouseleave)="onMouseLeave('right')"
 	>
-		<h1 class="box__heading">Introduce el resultado de tu partido</h1>
+		<h1 #rightHeading class="box__heading">
+			Introduce el resultado de tu partido
+		</h1>
 		<a href="#" class="box__cta">Vamos Rafa!</a>
 	</div>
 </div>
