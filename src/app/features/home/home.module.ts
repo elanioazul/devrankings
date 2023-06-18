@@ -11,6 +11,7 @@ import { ScrollsliderComponent } from "./components/scrollslider/scrollslider.co
 import { KeypointListComponent } from "./components/keypoint-list/keypoint-list.component";
 import { KeypointListItemComponent } from "./components/keypoint-list-item/keypoint-list-item.component";
 import { InteractiveBallsComponent } from "./components/interactive-balls/interactive-balls.component";
+import { DualSliderComponent } from "./components/dual-slider/dual-slider.component";
 
 @NgModule({
 	declarations: [
@@ -20,6 +21,7 @@ import { InteractiveBallsComponent } from "./components/interactive-balls/intera
 		KeypointListComponent,
 		KeypointListItemComponent,
 		InteractiveBallsComponent,
+		DualSliderComponent,
 	],
 	imports: [
 		CommonModule,
@@ -35,6 +37,7 @@ import { InteractiveBallsComponent } from "./components/interactive-balls/intera
 		KeypointListComponent,
 		KeypointListItemComponent,
 		InteractiveBallsComponent,
+		DualSliderComponent,
 	],
 })
 export class HomeModule {}

@@ -3,12 +3,13 @@
 .box {
   background-color:$hornygreenish;
   width: 100%;
-  height: 100%
+  height: 100%;
+  padding-bottom: 3px;
 }
 
 .child {
   background-color:$white;
-  height: 3000px;//esto debe ser calculado, pq si es 100vh como scrollslides es absoluto no cuenta
+  height: 5000px;//esto debe ser calculado, pq si es 100vh como scrollslides es absoluto no cuenta
   //height: calc(100% - 400px);
   margin: 0px 8px 8px 8px;
   overflow-x: hidden;

@@ -70,7 +70,7 @@ export class InteractiveBallsComponent implements OnInit {
 			.on("mousemove", (e) => {
 				this.simulation.restart();
 			});
-		this.setSvgSize(this.width, this.height);
+		this.setSvgSize(this.width, this.height / 1.75);
 
 		this.nodeElements = this.svg
 			.selectAll(".particle")
@@ -90,7 +90,7 @@ export class InteractiveBallsComponent implements OnInit {
 			.alphaTarget(0.3) // stay hot
 			.velocityDecay(0.1) // low friction
 			.force("x", d3.forceX(this.width / 2).strength(0.001))
-			.force("y", d3.forceY(this.height / 3).strength(0.001))
+			.force("y", d3.forceY(this.height / 4).strength(0.001))
 			.force(
 				"collide",
 				d3

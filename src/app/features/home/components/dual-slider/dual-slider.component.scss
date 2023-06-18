@@ -1,0 +1,171 @@
+
+.box {
+  background: #09f;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  overflow-x: hidden;
+
+  height: 350px;
+
+  @media (min-width: 768px) {
+    height: 450px;
+  }
+  @media (min-width: 992px) {
+    height: 500px;
+  }
+
+  &__heading {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: small
+    ;
+    @media (min-width: 768px) {
+      font-size: medium;
+    }
+    @media (min-width: 992px) {
+      font-size: x-large;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -8px;
+      background: #fff;
+      transition: 500ms all ease-in-out;
+      @media (min-width: 768px) {
+        height: 3px;
+      }
+      @media (min-width: 992px) {
+        height: 4px;
+      }
+    }
+
+    &--transitioned::after {
+      width: 100%;
+    }
+  }
+
+  &__cta {
+    display: block;
+    position: absolute;
+    height: 40px;
+    line-height: 50px;
+    width: 80px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+    border: 2px solid #fff;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    @media (min-width: 768px) {
+      height: 45px;
+      width: 100px;
+    }
+    @media (min-width: 992px) {
+      height: 50px;
+      width: 120px;
+    }
+
+    &::before {
+      content: "";
+      background: #fff;
+      height: 0;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: 300ms all ease-in-out;
+    }
+
+    &:hover:before {
+      height: 4px;
+    }
+  }
+
+  &__one-half {
+    overflow: hidden;
+    flex-grow: 1;
+    width: 100%;
+    position: relative;
+
+    height: 350px;
+
+    @media (min-width: 768px) {
+      height: 450px;
+    }
+    @media (min-width: 992px) {
+      height: 500px;
+    }
+
+    &--transitioned {
+      transition: 500ms all ease-in-out;
+    }
+    &--transitioned::before {
+      transition: 500ms all ease-in-out;
+    }
+    &--left {
+      background: url("http://andrewerrico.com/jura-panorama.jpg") center center no-repeat;
+      background-size: cover;
+    }
+    &--left::before {
+      content: ""; // ::before and ::after both require content
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 0, 120, 0.5);
+    }
+    &--left-is-hovered {
+      width: 85%;
+    }
+    &--right-being-left-hovered {
+      width: 15%;
+    }
+    &--right-being-left-hovered::before {
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 2;
+    }
+    &--right {
+      background: url("https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b") center center no-repeat;
+      background-size: cover;
+    }
+    &--right::before {
+      content: ""; // ::before and ::after both require content
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(25, 120, 220, 0.5);
+    }
+    &--right-is-hovered {
+      width: 85%;
+    }
+    &--left-being-right-hovered {
+      width: 15%;
+    }
+    &--left-being-right-hovered::before {
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 2;
+    }
+
+  }
+}
