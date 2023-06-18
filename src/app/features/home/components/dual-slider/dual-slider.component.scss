@@ -101,6 +101,12 @@
       height: 450px;
     }
 
+    &--transitioned {
+      transition: 500ms all ease-in-out;
+    }
+    &--transitioned::before {
+      transition: 500ms all ease-in-out;
+    }
     &--left {
       background: url("http://andrewerrico.com/jura-panorama.jpg") center center no-repeat;
       background-size: cover;
@@ -120,6 +126,10 @@
     &--right-being-left-hovered {
       width: 15%;
     }
+    &--right-being-left-hovered::before {
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 2;
+    }
     &--right {
       background: url("https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b") center center no-repeat;
       background-size: cover;
@@ -138,6 +148,10 @@
     }
     &--left-being-right-hovered {
       width: 15%;
+    }
+    &--left-being-right-hovered::before {
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 2;
     }
 
   }
