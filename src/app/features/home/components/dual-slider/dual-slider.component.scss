@@ -11,13 +11,13 @@
 
   overflow-x: hidden;
 
-  height: 150px;
+  height: 350px;
 
   @media (min-width: 768px) {
-    height: 350px;
+    height: 450px;
   }
   @media (min-width: 992px) {
-    height: 450px;
+    height: 500px;
   }
 
   &__heading {
@@ -105,13 +105,13 @@
     width: 100%;
     position: relative;
 
-    height: 150px;
+    height: 350px;
 
     @media (min-width: 768px) {
-      height: 350px;
+      height: 450px;
     }
     @media (min-width: 992px) {
-      height: 450px;
+      height: 500px;
     }
 
     &--transitioned {
