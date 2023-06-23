@@ -35,11 +35,76 @@ footer {
     margin: 0px;
     list-style: none;
     color: $white;
+
+    &--fixed {
+      flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      /* -webkit-box-align: center; */
+      align-items: center;
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 90px;
+        margin: 0px auto;
+        background-color: red;
+      }
+    }
   }
 
   &__social-icon-fa {
     font-size: 32px;
     padding: 0px 25px;
+  }
+
+  &__social-fixed {
+    position: fixed;
+    width: 40px;
+    bottom: 0px;
+    z-index: 100;
+    color: chocolate;
+
+    &--left {
+      left: 20px;
+      right: auto;
+    }
+    &--right {
+      left: auto;
+      right: 20px;
+    }
+  }
+
+  &__social-email {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+
+    &--href {
+      margin: 20px auto;
+      padding: 10px;
+      font-family: $logo-font;
+      font-size: large;
+      line-height: normal;
+      letter-spacing: 0.1em;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 90px;
+        margin: 0px auto;
+        background-color: red;
+      }
+    }
   }
 
   &__brand {
