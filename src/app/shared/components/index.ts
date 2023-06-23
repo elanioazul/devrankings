@@ -3,3 +3,4 @@ export * from "./button";
 export * from "./navbar";
 export * from "./logo";
 export * from "./logo-inmotion";
+export * from "./footer";

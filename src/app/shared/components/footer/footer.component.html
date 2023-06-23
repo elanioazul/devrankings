@@ -1,0 +1,51 @@
+<footer>
+	<div class="box">
+		<div class="box__social">
+			<ul class="box__social-list">
+				<ng-container *ngFor="let icon of socialMedia">
+					<li class="box__social-icon">
+						<a class="box__social-icon-link" href="javascript:void(0);"
+							><fa-icon
+								*ngIf="icon"
+								class="box__social-icon-fa"
+								[icon]="icon"
+							></fa-icon
+						></a>
+					</li>
+				</ng-container>
+			</ul>
+			<p>dev.rankings@gmail.com</p>
+		</div>
+		<div class="box__brand">
+			<app-logo-inmotion class="box__brand--logo"></app-logo-inmotion>
+			<div class="box__brand--organization">
+				<p>DevRankings</p>
+				<p>somos</p>
+			</div>
+			<div class="box__brand--circle">
+				<a
+					class="box__brand--circle-inner"
+					href="https://twitter.com/elanio_herrador"
+					>RO</a
+				>
+				<!-- <p class="box__brand--circle-inner">HH</p> -->
+			</div>
+			<div class="box__brand--circle">
+				<a
+					class="box__brand--circle-inner"
+					href="https://twitter.com/elanio_herrador"
+					>MM</a
+				>
+				<!-- <p class="box__brand--circle-inner">RO</p> -->
+			</div>
+			<div class="box__brand--circle">
+				<a
+					class="box__brand--circle-inner"
+					href="https://twitter.com/elanio_herrador"
+					>HH</a
+				>
+				<!-- <p class="box__brand--circle-inner">MA</p> -->
+			</div>
+		</div>
+	</div>
+</footer>

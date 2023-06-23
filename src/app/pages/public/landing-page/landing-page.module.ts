@@ -7,6 +7,8 @@ import { LandingPageComponent } from "./landing-page.component";
 import { HomeModule } from "@features/home/home.module";
 import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 
+import { FooterModule } from "@shared/components";
+
 @NgModule({
 	declarations: [LandingPageComponent],
 	imports: [
@@ -15,6 +17,7 @@ import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 		HomeModule,
 		BaseCanvasModule,
 		CoorpFrameModule,
+		FooterModule,
 	],
 })
 export class LandingPageModule {}

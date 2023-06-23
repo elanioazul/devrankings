@@ -15,7 +15,13 @@
   overflow-x: hidden;
   overflow-y: hidden;
 
+  padding: 0px 50px;
+
+  @media (min-width: 768px) {
+    padding: 0px 100px;
+  }
   @media(min-width:991px) {
     margin: 0px 0px 8px 8px;
+    padding: 0px 100px;
   }
 }
