@@ -9,13 +9,19 @@
 
 .child {
   background-color:$white;
-  height: 5000px;//esto debe ser calculado, pq si es 100vh como scrollslides es absoluto no cuenta
-  //height: calc(100% - 400px);
+  //height: height: calc(100% - 50px);//esto debe ser calculado, pq si es 100vh como scrollslides es absoluto no cuenta
+  height: 100%;
   margin: 0px 8px 8px 8px;
   overflow-x: hidden;
   overflow-y: hidden;
 
+  padding: 0px 50px;
+
+  @media (min-width: 768px) {
+    padding: 0px 100px;
+  }
   @media(min-width:991px) {
     margin: 0px 0px 8px 8px;
+    padding: 0px 100px;
   }
 }

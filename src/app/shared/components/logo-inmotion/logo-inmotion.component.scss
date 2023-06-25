@@ -1,10 +1,14 @@
 @import "../../../../theme/theme";
 .box {
   background: $hornygreenish;
+  width: 80px;
+  position: absolute;
+  left: -125px;
+  top: -90px;
 }
 
 .loadWrapper {
-  position: relative;
+  //position: relative;
 }
 .dot {
   width: 2rem;
