@@ -46,6 +46,14 @@ footer {
       padding: 0px;
       list-style: none;
 
+      li {
+        margin-bottom: 20px;
+      }
+
+      li:last-child {
+        margin-bottom: 20px;
+      }
+
       &::after {
         content: "";
         display: block;
@@ -95,15 +103,15 @@ footer {
       letter-spacing: 0.1em;
       -webkit-writing-mode: vertical-rl;
       writing-mode: vertical-rl;
+    }
 
-      &::after {
-        content: "";
-        display: block;
-        width: 1px;
-        height: 90px;
-        margin: 0px auto;
-        background-color: red;
-      }
+    &::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 90px;
+      margin: 0px auto;
+      background-color: red;
     }
   }
 
