@@ -77,6 +77,10 @@ footer {
     z-index: 100;
     color: chocolate;
 
+    @media (max-width: 768px) {
+      display: none;
+    }
+
     &--left {
       left: 20px;
       right: auto;
