@@ -1,5 +1,7 @@
+@import "../../../../../theme/theme";
+
 .box {
-  background: rgb(124, 127, 136);
+  background: $white;
 
   // display: flex;
   // flex-direction: row;
@@ -17,5 +19,37 @@
   }
   @media (min-width: 992px) {
     height: 500px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px;
+
+  &__row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title {
+
+  &__subheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    &-item {
+      display: block;
+    }
+    &-item:last-child {
+      padding-top: 10px;
+    }
   }
 }
