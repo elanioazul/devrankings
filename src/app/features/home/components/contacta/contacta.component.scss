@@ -12,22 +12,22 @@
 
   // overflow-x: hidden;
 
-  height: 350px;
+  height: 850px;
 
   @media (min-width: 768px) {
-    height: 450px;
+    height: 850px;
   }
   @media (min-width: 992px) {
-    height: 500px;
+    height: 1010px;
   }
 }
 
-.form {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 15px;
+  padding: 10px 15px;
 
   &__row{
     display: flex;
@@ -47,9 +47,50 @@
 
     &-item {
       display: block;
+      padding-bottom: 15px;
+
+      @media (min-width: 768px) {
+        padding-bottom: 20px;
+      }
+      @media (min-width: 992px) {
+        padding-bottom: 30px;
+      }
     }
     &-item:last-child {
       padding-top: 10px;
+
+      @media (min-width: 768px) {
+        padding-top: 15px;
+      }
+      @media (min-width: 992px) {
+        padding-top: 20px;
+      }
     }
   }
+}
+
+label, input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.p-button {
+  padding-top: 50px;
 }
