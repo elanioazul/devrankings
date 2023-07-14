@@ -3,7 +3,8 @@
 		<div class="container__row title">
 			<div class="title__subheader">
 				<span class="title__subheader-item"
-					>¿Quieres abrir un ránking en tu comunidad y tienes dudas?</span
+					>¿Quieres abrir un ránking en tu comunidad y tienes dudas sobre cómo
+					hacerlo?</span
 				>
 				<span class="title__subheader-item"
 					>¿Tienes dificultades incribiéndote en un ránking?</span
@@ -17,55 +18,54 @@
 			</div>
 		</div>
 		<div class="container__row">
-			<form [formGroup]="contactaForm">
-				<div>
-					<div>
-						<label for="names">Nombre y apellidos:</label>
-						<input type="text" id="names" pInputText formControlName="names" />
+			<form [formGroup]="contactaForm" class="form">
+				<div class="form__container">
+					<div class="form__field-group">
+						<label class="form__label" for="names">Nombre y apellidos:</label>
+						<input
+							class="form__input"
+							type="text"
+							id="names"
+							pInputText
+							formControlName="names"
+						/>
 						<app-error-form
-							class="error-message"
+							class="form__error"
 							[control]="contactaForm.get('names')!"
 						></app-error-form>
 					</div>
-					<div>
-						<label for="email">Email:</label>
-						<input type="email" id="email" pInputText formControlName="email" />
+					<div class="form__field-group">
+						<label class="form__label" for="email">Email:</label>
+						<input
+							class="form__input"
+							type="email"
+							id="email"
+							pInputText
+							formControlName="email"
+						/>
 						<app-error-form
-							class="error-message"
+							class="form__error"
 							[control]="contactaForm.get('email')!"
 						></app-error-form>
 					</div>
-					<div>
-						<label for="phone">Teléfono:</label>
-						<p-inputNumber
-							id="phone"
-							mode="decimal"
-							inputId="withoutgrouping"
-							[useGrouping]="false"
-							formControlName="phone"
-						>
-						</p-inputNumber>
-						<app-error-form
-							class="error-message"
-							[control]="contactaForm.get('phone')!"
-						></app-error-form>
-					</div>
-					<div>
-						<label for="subject">Asunto:</label>
+					<div class="form__field-group">
+						<label class="form__label" for="subject">Asunto:</label>
 						<input
+							class="form__input"
 							type="text"
 							id="subject"
 							pInputText
 							formControlName="subject"
 						/>
 						<app-error-form
-							class="error-message"
+							class="form__error"
 							[control]="contactaForm.get('subject')!"
 						></app-error-form>
 					</div>
-					<div>
-						<label for="message">Mensaje:</label>
+					<div class="form__field-group">
+						<label class="form__label" for="message">Mensaje:</label>
 						<textarea
+							class="form__input"
 							rows="10"
 							cols="50"
 							pInputTextarea
@@ -74,13 +74,14 @@
 							formControlName="message"
 						></textarea>
 						<app-error-form
-							class="error-message"
+							class="form__error"
 							[control]="contactaForm.get('message')!"
 						></app-error-form>
 					</div>
 
 					<p-button
-						label="Submit"
+						class="form__btn-submit"
+						label="Enviar"
 						[loading]="loading"
 						(click)="load()"
 						[disabled]="!contactaForm.valid"

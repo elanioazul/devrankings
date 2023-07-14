@@ -1,0 +1,12 @@
+@import "./colors";
+
+//primeng theme modification
+.p-inputtext:enabled:focus {
+  border-color: yellow !important;
+  box-shadow: 0 0 0 0.02rem $blue !important;
+}
+
+.p-inputtext:enabled:hover {
+  border-color: yellow !important;
+  box-shadow: 0 0 0 0.02rem $blue !important;
+}

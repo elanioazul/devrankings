@@ -15,10 +15,10 @@
   height: 850px;
 
   @media (min-width: 768px) {
-    height: 850px;
+    height: 800px;
   }
   @media (min-width: 992px) {
-    height: 1010px;
+    height: 700px;
   }
 }
 
@@ -26,14 +26,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   padding: 10px 15px;
+  max-width: 90%;
 
-  &__row{
+  //background-color: #9839ff;
+  background-repeat: no-repeat;
+  background-image: url(../../../../../assets/img/poligon.svg);
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+  @media (min-width: 992px) {
+  }
+
+  &__row {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+    @media (min-width: 992px) {
+    }
+  }
+  &__row:first-child {
+    @media (min-width: 768px) {
+      padding-right: 40px;
+    }
+
   }
 }
 
@@ -48,12 +69,13 @@
     &-item {
       display: block;
       padding-bottom: 15px;
+      font-size: small;
 
       @media (min-width: 768px) {
         padding-bottom: 20px;
+        font-size: medium;
       }
       @media (min-width: 992px) {
-        padding-bottom: 30px;
       }
     }
     &-item:last-child {
@@ -63,34 +85,55 @@
         padding-top: 15px;
       }
       @media (min-width: 992px) {
-        padding-top: 20px;
+        padding-top: 60px;
       }
     }
   }
 }
 
-label, input {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
+.form {
 
-label {
-  font-weight: bold;
-}
+  &__container {
 
-input[type="text"], input[type="email"], input[type="password"] {
-  padding: 10px;
-  border: 1px solid gray;
-  border-radius: 5px;
-}
+  }
 
-.error-message {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
-}
+  &__field-group {
+    max-width: 100%;
+  }
 
-.p-button {
-  padding-top: 50px;
+  &__input:not(textarea) {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 40px;
+    @media (min-width: 768px) {
+      height: inherit;
+    }
+  }
+
+  &__label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: x-small;
+    @media (min-width: 768px) {
+      font-size: medium;
+    }
+    @media (min-width: 992px) {
+    }
+  }
+
+  &__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  &__btn-submit {
+    padding-top: 50px;
+  }
 }

@@ -14,10 +14,9 @@ export class ContactaComponent {
 
 	constructor() {
 		this.contactaForm = this.fb.group({
-			names: ["", Validators.required, Validators.required],
+			names: ["", Validators.required],
 			email: ["", [Validators.required, Validators.email]],
-			phone: ["", [Validators.required, Validators.minLength(9)]],
-			subject: ["", Validators.required, Validators.required],
+			subject: ["", Validators.required],
 			message: ["", [Validators.required, Validators.minLength(8)]],
 		});
 	}
