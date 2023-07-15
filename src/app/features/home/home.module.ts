@@ -14,6 +14,10 @@ import { InteractiveBallsComponent } from "./components/interactive-balls/intera
 import { DualSliderComponent } from "./components/dual-slider/dual-slider.component";
 import { ContactaComponent } from "./components/contacta/contacta.component";
 
+import { PrimengModule } from "@shared/components/primeng/primeng.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ErrorFormModule } from "@shared/components/error-form/error-form.module";
+
 @NgModule({
 	declarations: [
 		HomeComponent,
@@ -32,6 +36,10 @@ import { ContactaComponent } from "./components/contacta/contacta.component";
 		// CoorpFrameModule,
 		CardModule,
 		GridModule,
+		PrimengModule,
+		FormsModule,
+		ReactiveFormsModule,
+		ErrorFormModule,
 	],
 	exports: [
 		WhatwedoComponent,

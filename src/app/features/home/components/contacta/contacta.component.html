@@ -1,4 +1,93 @@
 <div class="box">
-	<div></div>
-	<div></div>
+	<div class="container">
+		<div class="container__row title">
+			<div class="title__subheader">
+				<span class="title__subheader-item"
+					>¿Quieres abrir un ránking en tu comunidad y tienes dudas sobre cómo
+					hacerlo?</span
+				>
+				<span class="title__subheader-item"
+					>¿Tienes dificultades incribiéndote en un ránking?</span
+				>
+				<span class="title__subheader-item"
+					>¿Te surjen dudas introduciendo los resultados de tu partido?
+				</span>
+				<span class="title__subheader-item"
+					>Para éstas y otras consultas, escríbenos:</span
+				>
+			</div>
+		</div>
+		<div class="container__row">
+			<form [formGroup]="contactaForm" class="form">
+				<div class="form__container">
+					<div class="form__field-group">
+						<label class="form__label" for="names">Nombre y apellidos:</label>
+						<input
+							class="form__input"
+							type="text"
+							id="names"
+							pInputText
+							formControlName="names"
+						/>
+						<app-error-form
+							class="form__error"
+							[control]="contactaForm.get('names')!"
+						></app-error-form>
+					</div>
+					<div class="form__field-group">
+						<label class="form__label" for="email">Email:</label>
+						<input
+							class="form__input"
+							type="email"
+							id="email"
+							pInputText
+							formControlName="email"
+						/>
+						<app-error-form
+							class="form__error"
+							[control]="contactaForm.get('email')!"
+						></app-error-form>
+					</div>
+					<div class="form__field-group">
+						<label class="form__label" for="subject">Asunto:</label>
+						<input
+							class="form__input"
+							type="text"
+							id="subject"
+							pInputText
+							formControlName="subject"
+						/>
+						<app-error-form
+							class="form__error"
+							[control]="contactaForm.get('subject')!"
+						></app-error-form>
+					</div>
+					<div class="form__field-group">
+						<label class="form__label" for="message">Mensaje:</label>
+						<textarea
+							class="form__input"
+							rows="10"
+							cols="50"
+							pInputTextarea
+							type="message"
+							id="message"
+							formControlName="message"
+						></textarea>
+						<app-error-form
+							class="form__error"
+							[control]="contactaForm.get('message')!"
+						></app-error-form>
+					</div>
+
+					<p-button
+						class="form__btn-submit"
+						label="Enviar"
+						[loading]="loading"
+						(click)="load()"
+						[disabled]="!contactaForm.valid"
+					></p-button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
