@@ -3,6 +3,6 @@ import { Component } from "@angular/core";
 @Component({
 	selector: "app-signin",
 	templateUrl: "./signin.component.html",
-	styles: [],
+	styleUrls: ["./signin.component.scss"],
 })
 export class SigninComponent {}

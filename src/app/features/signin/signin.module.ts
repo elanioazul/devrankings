@@ -3,9 +3,10 @@ import { CommonModule } from "@angular/common";
 
 import { SigninRoutingModule } from "./signin-routing.module";
 import { SigninComponent } from "./signin.component";
-import { BaseCanvasModule } from "src/app/shared";
+
 @NgModule({
 	declarations: [SigninComponent],
-	imports: [CommonModule, SigninRoutingModule, BaseCanvasModule],
+	imports: [CommonModule, SigninRoutingModule],
+	exports: [SigninComponent],
 })
 export class SigninModule {}
