@@ -1,18 +1,33 @@
 <div class="cont">
 	<div class="form-container sign-in-container">
 		<form action="#">
-			<h1>Sign in</h1>
+			<h1>Login</h1>
 			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				<a href="#" class="social"
+					><fa-icon
+						style="font-size: 20px; color: #00364a"
+						[icon]="faFb"
+					></fa-icon
+				></a>
+				<a href="#" class="social"
+					><fa-icon
+						style="font-size: 20px; color: #00364a"
+						[icon]="faInsta"
+					></fa-icon
+				></a>
+				<a href="#" class="social"
+					><fa-icon
+						style="font-size: 20px; color: #00364a"
+						[icon]="faGoogle"
+					></fa-icon
+				></a>
 			</div>
-			<span>or use your account</span>
+			<span>o utiliza tu cuenta DevRanking</span>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-			<a routerLink="/signup" href="#">Don´t you have an account yet?</a>
+			<a href="#">¿olvidaste tu password?</a>
+			<button>Login</button>
+			<a routerLink="/signup" href="#">¿No tienes una cuenta todavía?</a>
 		</form>
 	</div>
 </div>
