@@ -22,12 +22,15 @@
 					></fa-icon
 				></a>
 			</div>
-			<span>o usa tu email para registrarte</span>
+			<span>o usa tu email para registrarte:</span>
 			<input type="text" placeholder="Nombre" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<button>Regístrame</button>
-			<a routerLink="/signin" href="#">Login aqui si ya tienes una cuenta</a>
+			<input type="password" placeholder="Password check" />
+			<app-button [type]="'btn1'" [inputText]="'Enviar'"></app-button>
+			<a class="go-login" routerLink="/signin" href="#"
+				>Login aqui si ya tienes una cuenta</a
+			>
 		</form>
 	</div>
 </div>
