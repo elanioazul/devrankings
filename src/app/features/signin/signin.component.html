@@ -26,8 +26,10 @@
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<a href="#">¿olvidaste tu password?</a>
-			<button>Login</button>
-			<a routerLink="/signup" href="#">¿No tienes una cuenta todavía?</a>
+			<app-button [type]="'btn1'" [inputText]="'Login'"></app-button>
+			<a class="go-signup" routerLink="/signup" href="#"
+				>¿No tienes una cuenta todavía?</a
+			>
 		</form>
 	</div>
 </div>
