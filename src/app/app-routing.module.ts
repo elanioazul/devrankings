@@ -36,13 +36,6 @@ const routes: Routes = [
 			),
 	},
 	{
-		path: "signin-signup",
-		loadChildren: () =>
-			import(
-				"./pages/public/signin-signup-page/signin-signup-page.module"
-			).then((m) => m.SigninSignupPageModule),
-	},
-	{
 		path: "signup",
 		loadChildren: () =>
 			import("./pages/public/signup-page/signup-page.module").then(

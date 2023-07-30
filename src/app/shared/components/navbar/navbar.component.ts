@@ -69,7 +69,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 		},
 		{ to: "/reglas", label: "Reglas", icon: faFolderOpen, isDefault: false },
 		{
-			to: "/signin-signup",
+			to: "/signin",
 			label: "Acceso",
 			icon: faUserCircle,
 			isDefault: false,
