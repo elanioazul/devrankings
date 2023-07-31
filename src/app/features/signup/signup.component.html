@@ -1,6 +1,6 @@
 <div class="cont">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form class="form" [formGroup]="registerForm">
 			<h1>Regístrate</h1>
 			<div class="social-container">
 				<a href="#" class="social"
@@ -23,13 +23,66 @@
 				></a>
 			</div>
 			<span>o usa tu email para registrarte:</span>
-			<input type="text" placeholder="Nombre" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<input type="password" placeholder="Password check" />
+			<div class="form__field-group">
+				<input
+					class="form__input"
+					type="text"
+					id="name"
+					pInputText
+					formControlName="name"
+					placeholder="name"
+				/>
+				<app-error-form
+					class="form__error"
+					[control]="registerForm.get('name')!"
+				></app-error-form>
+			</div>
+			<div class="form__field-group">
+				<input
+					class="form__input"
+					type="email"
+					id="email"
+					pInputText
+					formControlName="email"
+					placeholder="email"
+				/>
+				<app-error-form
+					class="form__error"
+					[control]="registerForm.get('email')!"
+				></app-error-form>
+			</div>
+			<div class="form__field-group">
+				<input
+					class="form__input"
+					type="password"
+					id="password"
+					pInputText
+					formControlName="password"
+					placeholder="password"
+				/>
+				<app-error-form
+					class="form__error"
+					[control]="registerForm.get('password')!"
+				></app-error-form>
+			</div>
+			<div class="form__field-group">
+				<input
+					class="form__input"
+					type="password"
+					id="passwordCheck"
+					pInputText
+					formControlName="passwordCheck"
+					placeholder="password confirmation"
+				/>
+				<app-error-form
+					class="form__error"
+					[control]="registerForm.get('passwordCheck')!"
+				></app-error-form>
+			</div>
 			<app-button [type]="'btn1'" [inputText]="'Enviar'"></app-button>
 			<a class="go-login" routerLink="/signin" href="#"
-				>Login aqui si ya tienes una cuenta</a
+				>Pulsa aqui si ya tienes una cuenta
+				<span class="dev-ranking">DevRanking</span></a
 			>
 		</form>
 	</div>

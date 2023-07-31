@@ -1,6 +1,15 @@
+@import "../../../theme/theme";
+
 h1 {
 	font-weight: bold;
+  font-size: large;
 	margin: 0;
+  @media (min-width: 768px) {
+    font-size: x-large;
+  }
+  @media (min-width: 992px) {
+    font-size: x-large;
+  }
 }
 
 p {
@@ -22,48 +31,42 @@ a {
 	margin: 15px 0;
 }
 
-button {
-	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-button:active {
-	transform: scale(0.95);
-}
-
-button:focus {
-	outline: none;
-}
-
-button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
-}
-
-form {
+.form {
+  font-family: $header-font;
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	height: 100%;
+  width: 300px;
 	text-align: center;
-}
+  @media (min-width: 768px) {
+    width: 400px;
+  }
+  @media (min-width: 992px) {
+    width: 800px;
+  }
 
-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
+  &__field-group {
+    max-width: 90%;
+  }
+
+  &__input {
+    background-color: #eee;
+    border: none;
+    border-radius: 2px;
+    padding: 12px 15px;
+    margin: 8px 0px 0px 0px;
+  }
+
+  &__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    text-align: start;
+  }
 }
 
 .cont {
@@ -105,4 +108,9 @@ input {
 
 .go-login {
   padding-top: 35px;
+}
+
+.dev-ranking {
+  font-family: $logo-font;
+  font-size: medium;
 }

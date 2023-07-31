@@ -107,7 +107,7 @@
     border-radius: 5px;
     display: block;
     width: 100%;
-    margin-bottom: 10px;
+    //margin-bottom: 10px;
     height: 40px;
     @media (min-width: 768px) {
       height: inherit;
@@ -130,7 +130,8 @@
   &__error {
     color: red;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 1px;
+    display: inline-block;
   }
 
   &__btn-submit {
