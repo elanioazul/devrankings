@@ -42,7 +42,7 @@ const messages = new Map<
 	[
 		"passwordMismatch",
 		{
-			message: "Las password no coinciden",
+			message: "Las contraseñas no coinciden",
 			validatorErrorsKey: ["passwordMismatch"],
 		},
 	],
