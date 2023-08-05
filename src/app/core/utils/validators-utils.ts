@@ -1,4 +1,4 @@
-import { ValidationErrors } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export const getValidatorErrorMessage = (
 	validatorName: string,
@@ -10,6 +10,35 @@ export const getValidatorErrorMessage = (
 	return args
 		? stringFormat(messages.get(validatorName)?.message, ...args)
 		: messages.get(validatorName)?.message;
+};
+
+export const passwordMatch = (
+	password: string,
+	confirmPassword: string
+): ValidatorFn => {
+	return (formGroup: AbstractControl): { [key: string]: any } | null => {
+		const passwordControl = formGroup.get(password);
+		const confirmPasswordControl = formGroup.get(confirmPassword);
+
+		if (!passwordControl || !confirmPasswordControl) {
+			return null;
+		}
+
+		if (
+			confirmPasswordControl.errors &&
+			!confirmPasswordControl.errors["passwordMismatch"]
+		) {
+			return null;
+		}
+
+		if (passwordControl.value !== confirmPasswordControl.value) {
+			confirmPasswordControl.setErrors({ passwordMismatch: true });
+			return { passwordMismatch: true };
+		} else {
+			confirmPasswordControl.setErrors(null);
+			return null;
+		}
+	};
 };
 
 const messages = new Map<
@@ -32,6 +61,7 @@ const messages = new Map<
 		},
 	],
 	["email", { message: "Dirección de email incorrecta" }],
+	["passwordMismatch", { message: "Las passwords no coinciden" }],
 ]);
 
 function stringFormat(template: string | undefined, ...args: any[]) {

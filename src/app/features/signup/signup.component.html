@@ -83,15 +83,18 @@
 				<input
 					class="form__input form__input--pass"
 					type="password"
-					id="passwordCheck"
+					id="confirmPassword"
 					pInputText
-					formControlName="passwordCheck"
+					formControlName="confirmPassword"
 					placeholder="confirmación password"
 				/>
 				<app-error-form
 					class="form__error"
-					[control]="registerForm.get('passwordCheck')!"
+					[control]="registerForm.get('confirmPassword')!"
 				></app-error-form>
+				<div *ngIf="registerForm.hasError('notSame')">
+					Passwords do not match
+				</div>
 			</div>
 			<app-button [type]="'btn1'" [inputText]="'Enviar'"></app-button>
 			<a class="go-login" routerLink="/signin" href="#"
