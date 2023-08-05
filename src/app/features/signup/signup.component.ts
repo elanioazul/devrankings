@@ -38,12 +38,26 @@ export class SignupComponent {
 						Validators.required,
 						Validators.minLength(8),
 						Validators.maxLength(24),
+						this.createPasswordStrengthValidator(),
 					],
 				],
 				confirmPassword: ["", Validators.required],
 			},
-			{ validators: this.checkPasswords }
+			{
+				validator: this.createPasswordMatchValidator(
+					"password",
+					"confirmPassword"
+				),
+			}
 		);
+	}
+
+	get password() {
+		return this.registerForm.controls["password"];
+	}
+
+	get confirmPassword() {
+		return this.registerForm.controls["confirmPassword"];
 	}
 
 	checkPasswords: ValidatorFn = (
@@ -56,5 +70,50 @@ export class SignupComponent {
 		} else {
 			return null;
 		}
+	};
+
+	createPasswordStrengthValidator(): ValidatorFn {
+		return (control: AbstractControl): ValidationErrors | null => {
+			const value = control.value;
+			if (!value) {
+				return null;
+			}
+			const hasUpperCase = /[A-Z]+/.test(value);
+			const hasLowerCase = /[a-z]+/.test(value);
+			const hasNumeric = /[0-9]+/.test(value);
+
+			const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+
+			return !passwordValid ? { passwordStrength: true } : null;
+		};
+	}
+
+	createPasswordMatchValidator = (
+		password: string,
+		confirmPassword: string
+	): ValidatorFn => {
+		return (control: AbstractControl): { [key: string]: any } | null => {
+			const passwordControl = control.get(password);
+			const confirmPasswordControl = control.get(confirmPassword);
+
+			if (!passwordControl || !confirmPasswordControl) {
+				return null;
+			}
+
+			if (
+				confirmPasswordControl.errors &&
+				!confirmPasswordControl.errors["passwordMismatch"]
+			) {
+				return null;
+			}
+
+			if (passwordControl.value !== confirmPasswordControl.value) {
+				confirmPasswordControl.setErrors({ passwordMismatch: true });
+				return { passwordMismatch: true };
+			} else {
+				confirmPasswordControl.setErrors(null);
+				return null;
+			}
+		};
 	};
 }

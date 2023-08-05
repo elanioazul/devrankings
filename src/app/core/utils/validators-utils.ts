@@ -12,35 +12,6 @@ export const getValidatorErrorMessage = (
 		: messages.get(validatorName)?.message;
 };
 
-export const passwordMatch = (
-	password: string,
-	confirmPassword: string
-): ValidatorFn => {
-	return (formGroup: AbstractControl): { [key: string]: any } | null => {
-		const passwordControl = formGroup.get(password);
-		const confirmPasswordControl = formGroup.get(confirmPassword);
-
-		if (!passwordControl || !confirmPasswordControl) {
-			return null;
-		}
-
-		if (
-			confirmPasswordControl.errors &&
-			!confirmPasswordControl.errors["passwordMismatch"]
-		) {
-			return null;
-		}
-
-		if (passwordControl.value !== confirmPasswordControl.value) {
-			confirmPasswordControl.setErrors({ passwordMismatch: true });
-			return { passwordMismatch: true };
-		} else {
-			confirmPasswordControl.setErrors(null);
-			return null;
-		}
-	};
-};
-
 const messages = new Map<
 	string,
 	{ message: string; validatorErrorsKey?: string[] }
@@ -61,7 +32,20 @@ const messages = new Map<
 		},
 	],
 	["email", { message: "Dirección de email incorrecta" }],
-	["passwordMismatch", { message: "Las passwords no coinciden" }],
+	[
+		"passwordStrength",
+		{
+			message: "Debe tener un número, minúsculas y al menos una mayúscula",
+			validatorErrorsKey: ["passwordStrength"],
+		},
+	],
+	[
+		"passwordMismatch",
+		{
+			message: "Las password no coinciden",
+			validatorErrorsKey: ["passwordMismatch"],
+		},
+	],
 ]);
 
 function stringFormat(template: string | undefined, ...args: any[]) {
