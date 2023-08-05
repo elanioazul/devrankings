@@ -30,11 +30,25 @@
 					id="name"
 					pInputText
 					formControlName="name"
-					placeholder="name"
+					placeholder="nombre"
 				/>
 				<app-error-form
 					class="form__error"
 					[control]="registerForm.get('name')!"
+				></app-error-form>
+			</div>
+			<div class="form__field-group">
+				<input
+					class="form__input"
+					type="text"
+					id="surnames"
+					pInputText
+					formControlName="surnames"
+					placeholder="apellidos"
+				/>
+				<app-error-form
+					class="form__error"
+					[control]="registerForm.get('surnames')!"
 				></app-error-form>
 			</div>
 			<div class="form__field-group">
@@ -53,7 +67,7 @@
 			</div>
 			<div class="form__field-group">
 				<input
-					class="form__input"
+					class="form__input form__input--pass"
 					type="password"
 					id="password"
 					pInputText
@@ -67,12 +81,12 @@
 			</div>
 			<div class="form__field-group">
 				<input
-					class="form__input"
+					class="form__input form__input--pass"
 					type="password"
 					id="passwordCheck"
 					pInputText
 					formControlName="passwordCheck"
-					placeholder="password confirmation"
+					placeholder="confirmación password"
 				/>
 				<app-error-form
 					class="form__error"
