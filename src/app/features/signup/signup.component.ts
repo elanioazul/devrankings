@@ -19,6 +19,7 @@ import {
 	faFacebookF,
 	faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { filter } from "rxjs";
 @Component({
 	selector: "app-signup",
 	templateUrl: "./signup.component.html",
@@ -62,23 +63,12 @@ export class SignupComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.registerForm.statusChanges.subscribe((val) => {
-			this.onFormValidation(val);
-		});
-	}
-
-	onFormValidation(validity: string): void {
-		switch (validity) {
-			case "VALID":
-				console.log("valid");
+		this.registerForm.statusChanges
+			.pipe(filter((val) => val === "VALID"))
+			.subscribe((val) => {
 				this.inputPass.nativeElement.style.backgroundColor = "#eee";
 				this.inputPassConfirm.nativeElement.style.backgroundColor = "#eee";
-
-				break;
-			case "INVALID":
-				console.log("invalid yet");
-				break;
-		}
+			});
 	}
 
 	get password() {
