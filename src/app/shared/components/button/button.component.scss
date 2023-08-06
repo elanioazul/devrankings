@@ -10,10 +10,20 @@
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 
+  cursor: pointer;
+
+  opacity: 1;
+
   &:active {
     transform: scale(0.90);
   }
   &:focus {
     outline: none;
   }
+
+  &:disabled {
+    cursor: auto;
+    opacity: 0.3;
+  }
 }
+

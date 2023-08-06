@@ -54,7 +54,11 @@
 				></app-error-form>
 			</div>
 			<a href="#">¿olvidaste tu password?</a>
-			<app-button [type]="'btn1'" [inputText]="'Login'"></app-button>
+			<app-button
+				[type]="'btn1'"
+				[inputText]="'Login'"
+				[isDisabled]="!loginForm.valid"
+			></app-button>
 			<a class="go-signup" routerLink="/signup" href="#"
 				>¿No tienes una cuenta
 				<span class="dev-ranking">DevRanking</span> todavía?</a
