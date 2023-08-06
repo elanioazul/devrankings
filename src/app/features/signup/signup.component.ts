@@ -1,4 +1,10 @@
-import { Component, inject } from "@angular/core";
+import {
+	Component,
+	ElementRef,
+	OnInit,
+	ViewChild,
+	inject,
+} from "@angular/core";
 import {
 	AbstractControl,
 	FormBuilder,
@@ -18,13 +24,16 @@ import {
 	templateUrl: "./signup.component.html",
 	styleUrls: ["./signup.component.scss"],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
 	faFb = faFacebookF;
 	faInsta = faInstagram;
 	faGoogle = faGooglePlusG;
 
 	registerForm!: FormGroup;
 	fb: FormBuilder = inject(FormBuilder);
+
+	@ViewChild("password") inputPass!: ElementRef<HTMLInputElement>;
+	@ViewChild("confirmPassword") inputPassConfirm!: ElementRef<HTMLInputElement>;
 
 	constructor() {
 		this.registerForm = this.fb.group(
@@ -50,6 +59,26 @@ export class SignupComponent {
 				),
 			}
 		);
+	}
+
+	ngOnInit(): void {
+		this.registerForm.statusChanges.subscribe((val) => {
+			this.onFormValidation(val);
+		});
+	}
+
+	onFormValidation(validity: string): void {
+		switch (validity) {
+			case "VALID":
+				console.log("valid");
+				this.inputPass.nativeElement.style.backgroundColor = "#eee";
+				this.inputPassConfirm.nativeElement.style.backgroundColor = "#eee";
+
+				break;
+			case "INVALID":
+				console.log("invalid yet");
+				break;
+		}
 	}
 
 	get password() {
