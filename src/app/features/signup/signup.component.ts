@@ -60,18 +60,6 @@ export class SignupComponent {
 		return this.registerForm.controls["confirmPassword"];
 	}
 
-	checkPasswords: ValidatorFn = (
-		group: AbstractControl
-	): ValidationErrors | null => {
-		if (this.registerForm) {
-			let pass = this.registerForm.controls["password"].value;
-			let confirmPass = this.registerForm.controls["confirmPassword"].value;
-			return pass === confirmPass ? null : { notSame: true };
-		} else {
-			return null;
-		}
-	};
-
 	createPasswordStrengthValidator(): ValidatorFn {
 		return (control: AbstractControl): ValidationErrors | null => {
 			const value = control.value;
