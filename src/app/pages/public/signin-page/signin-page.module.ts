@@ -4,8 +4,9 @@ import { CommonModule } from "@angular/common";
 import { SigninPageRoutingModule } from "./signin-page-routing.module";
 import { SigninPageComponent } from "./signin-page.component";
 
+import { SigninModule } from "@features/signin/signin.module";
 @NgModule({
 	declarations: [SigninPageComponent],
-	imports: [CommonModule, SigninPageRoutingModule],
+	imports: [CommonModule, SigninPageRoutingModule, SigninModule],
 })
 export class SigninPageModule {}

@@ -79,13 +79,14 @@
 						></app-error-form>
 					</div>
 
-					<p-button
+					<app-button
+						[type]="'primeng'"
 						class="form__btn-submit"
-						label="Enviar"
+						[label]="'Enviar'"
 						[loading]="loading"
 						(click)="load()"
-						[disabled]="!contactaForm.valid"
-					></p-button>
+						[isDisabled]="!contactaForm.valid"
+					></app-button>
 				</div>
 			</form>
 		</div>
