@@ -5,6 +5,7 @@ import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
 //import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 import { CardModule } from "@shared/components/card";
+import { ButtonModule } from "@shared/components/button";
 import { GridModule } from "@shared/components/layouts/grid";
 import { WhatwedoComponent } from "./components/whatwedo/whatwedo.component";
 import { ScrollsliderComponent } from "./components/scrollslider/scrollslider.component";
@@ -35,6 +36,7 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 		// BaseCanvasModule,
 		// CoorpFrameModule,
 		CardModule,
+		ButtonModule,
 		GridModule,
 		PrimengModule,
 		FormsModule,

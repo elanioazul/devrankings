@@ -36,7 +36,14 @@ const routes: Routes = [
 			),
 	},
 	{
-		path: "login",
+		path: "signup",
+		loadChildren: () =>
+			import("./pages/public/signup-page/signup-page.module").then(
+				(m) => m.SignupPageModule
+			),
+	},
+	{
+		path: "signin",
 		loadChildren: () =>
 			import("./pages/public/signin-page/signin-page.module").then(
 				(m) => m.SigninPageModule

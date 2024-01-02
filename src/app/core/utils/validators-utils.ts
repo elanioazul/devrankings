@@ -1,4 +1,4 @@
-import { ValidationErrors } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export const getValidatorErrorMessage = (
 	validatorName: string,
@@ -32,6 +32,20 @@ const messages = new Map<
 		},
 	],
 	["email", { message: "Dirección de email incorrecta" }],
+	[
+		"passwordStrength",
+		{
+			message: "Debe tener un número, minúsculas y al menos una mayúscula",
+			validatorErrorsKey: ["passwordStrength"],
+		},
+	],
+	[
+		"passwordMismatch",
+		{
+			message: "Las contraseñas no coinciden",
+			validatorErrorsKey: ["passwordMismatch"],
+		},
+	],
 ]);
 
 function stringFormat(template: string | undefined, ...args: any[]) {
