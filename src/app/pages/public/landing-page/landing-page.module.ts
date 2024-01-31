@@ -5,7 +5,11 @@ import { LandingPageRoutingModule } from "./landing-page-routing.module";
 import { LandingPageComponent } from "./landing-page.component";
 
 import { HomeModule } from "@features/home/home.module";
-import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
+import {
+	BaseCanvasModule,
+	BaseCanvasInvertModule,
+	CoorpFrameModule,
+} from "src/app/shared";
 
 import { FooterModule } from "@shared/components";
 
@@ -16,6 +20,7 @@ import { FooterModule } from "@shared/components";
 		LandingPageRoutingModule,
 		HomeModule,
 		BaseCanvasModule,
+		BaseCanvasInvertModule,
 		CoorpFrameModule,
 		FooterModule,
 	],
