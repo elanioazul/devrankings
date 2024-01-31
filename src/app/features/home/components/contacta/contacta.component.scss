@@ -98,7 +98,10 @@
   }
 
   &__field-group {
-    max-width: 100%;
+    max-width: 65%;
+    @media (min-width: 992px) {
+      max-width: 100%;
+    }
   }
 
   &__input:not(textarea) {
@@ -137,4 +140,9 @@
   &__btn-submit {
     padding-top: 50px;
   }
+}
+
+.mytextarea {
+  max-width: 100%;
+
 }
