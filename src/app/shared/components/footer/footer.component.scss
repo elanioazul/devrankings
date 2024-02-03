@@ -60,7 +60,7 @@ footer {
         width: 1px;
         height: 90px;
         margin: 0px auto;
-        background-color: red;
+        background-color: $yellowball;
       }
     }
   }
@@ -75,7 +75,7 @@ footer {
     width: 40px;
     bottom: 0px;
     z-index: 100;
-    color: chocolate;
+    color: $yellowball;
 
     @media (max-width: 768px) {
       display: none;
@@ -115,7 +115,7 @@ footer {
       width: 1px;
       height: 90px;
       margin: 0px auto;
-      background-color: red;
+      background-color: $yellowball;
     }
   }
 
