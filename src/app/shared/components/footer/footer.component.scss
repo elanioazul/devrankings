@@ -127,8 +127,29 @@ footer {
     align-items: center;
     justify-content: center;
 
+    position: relative;
+
     &--logo {
-      position: relative;
+      //display: none;
+      @media (min-width: 768px) {
+        display: none;
+      }
+      @media (min-width: 992px) {
+        display: none;
+      }
+    }
+    &--logo-motion {
+      display: none;
+      @media (min-width: 768px) {
+        display:unset;
+        position: relative;
+        top: 25px;
+        left: -220px;
+      }
+      @media (min-width: 992px) {
+        display:unset;
+        position: relative;
+      }
     }
 
     &--organization {
@@ -148,8 +169,19 @@ footer {
     &--circle {
       display: inline-block;
       background-color: $hornygreenish;
-      margin: 10px;
+      margin: 10px 0px;
       border-radius: 50%;
+      border: 2px solid $white;
+      @media (min-width: 768px) {
+        margin: 10px;
+      }
+      @media (min-width: 992px) {
+      }
+      &:hover {
+        animation: --circle-inner 1s ease;
+        animation-iteration-count: 1;
+        background-color: $yellowball;
+      }
     }
     &--circle-inner {
       color: $white;
@@ -166,7 +198,7 @@ footer {
       &:hover {
         animation: --circle-inner 1s ease;
         animation-iteration-count: 1;
-        color: $hover;
+        color: $hornygreenish;
       }
     }
 
