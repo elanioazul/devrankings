@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<div #fixedSocial class="box__social-fixed box__social-fixed--left">
-			<ul class="box__social-list--fixed">
+			<ul #iconList class="box__social-list--fixed">
 				<ng-container *ngFor="let icon of socialMedia">
 					<li class="box__social-icon">
 						<a class="box__social-icon-link" href="javascript:void(0);"
@@ -72,7 +72,7 @@
 			</ul>
 		</div>
 		<div #fixedEmail class="box__social-fixed box__social-fixed--right">
-			<div class="box__social-email">
+			<div #email class="box__social-email">
 				<a class="box__social-email--href" href="mailto:devrankings@gmail.com"
 					>devrankings@gmail.com</a
 				>

@@ -30,6 +30,10 @@ export class FooterComponent implements OnDestroy, AfterViewInit {
 	fixedSocial!: ElementRef<HTMLDivElement>;
 	@ViewChild("fixedEmail", { static: true })
 	fixedEmail!: ElementRef<HTMLDivElement>;
+	@ViewChild("iconList", { static: true })
+	iconList!: ElementRef<HTMLDivElement>;
+	@ViewChild("email", { static: true })
+	email!: ElementRef<HTMLDivElement>;
 	instagram = faInstagram;
 	facebook = faFacebook;
 	twitter = faTwitter;
@@ -65,14 +69,21 @@ export class FooterComponent implements OnDestroy, AfterViewInit {
 	changeSocialColor(): void {
 		this.scrollService.isScrollAtBottom().subscribe((atBottom) => {
 			if (atBottom) {
-				console.log("Scrolled to the bottom!");
 				this.renderer.addClass(
 					this.fixedSocial.nativeElement,
 					"box__social-fixed--white"
 				);
 				this.renderer.addClass(
+					this.iconList.nativeElement,
+					"box__social-list--fixed-white"
+				);
+				this.renderer.addClass(
 					this.fixedEmail.nativeElement,
 					"box__social-fixed--white"
+				);
+				this.renderer.addClass(
+					this.email.nativeElement,
+					"box__social-email-white"
 				);
 			} else {
 				this.renderer.removeClass(
@@ -80,8 +91,16 @@ export class FooterComponent implements OnDestroy, AfterViewInit {
 					"box__social-fixed--white"
 				);
 				this.renderer.removeClass(
+					this.iconList.nativeElement,
+					"box__social-list--fixed-white"
+				);
+				this.renderer.removeClass(
 					this.fixedEmail.nativeElement,
 					"box__social-fixed--white"
+				);
+				this.renderer.removeClass(
+					this.email.nativeElement,
+					"box__social-email-white"
 				);
 			}
 		});
