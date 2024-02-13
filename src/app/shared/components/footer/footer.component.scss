@@ -10,6 +10,7 @@ footer {
   //border: 2px solid blueviolet;
   padding: 25px 0px;
   //height: 250px;
+  min-height: 300px;
 
   &__social {
     display: flex;
@@ -60,13 +61,13 @@ footer {
         width: 1px;
         height: 90px;
         margin: 0px auto;
-        background-color: $yellowball;
+        background-color: $hornygreenish;
       }
     }
   }
 
   &__social-icon-fa {
-    font-size: 32px;
+    font-size: 22px;
     padding: 0px 25px;
   }
 
@@ -75,7 +76,7 @@ footer {
     width: 40px;
     bottom: 0px;
     z-index: 100;
-    color: $yellowball;
+    color: $hornygreenish;
 
     @media (max-width: 768px) {
       display: none;
@@ -91,6 +92,10 @@ footer {
     }
   }
 
+  &__social-fixed--white {
+    color: $white;
+  }
+
   &__social-email {
     display: flex;
     flex-direction: column;
@@ -102,7 +107,7 @@ footer {
       margin: 20px auto;
       padding: 10px;
       font-family: $logo-font;
-      font-size: large;
+      font-size: small;
       line-height: normal;
       letter-spacing: 0.1em;
       -webkit-writing-mode: vertical-rl;
@@ -115,7 +120,7 @@ footer {
       width: 1px;
       height: 90px;
       margin: 0px auto;
-      background-color: $yellowball;
+      background-color: $hornygreenish;
     }
   }
 
