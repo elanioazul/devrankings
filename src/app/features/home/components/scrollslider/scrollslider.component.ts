@@ -115,17 +115,17 @@ export class ScrollsliderComponent implements OnInit, AfterViewInit {
 		const slclientDiv = this.slclient.nativeElement.children[0];
 		this.affectInnerHtml(
 			slclientDiv as HTMLElement,
-			'<span>client</span> <span class="scroll">' + this.vClients + "</span>"
+			'<span>Adéntrate</span> <span class="scroll">' + this.vClients + "</span>"
 		);
 		const slprojetDiv = this.slprojet.nativeElement.children[0];
 		this.affectInnerHtml(
 			slprojetDiv as HTMLElement,
-			'<span>projet</span> <span class="scroll">' + this.vProjets + "</span>"
+			'<span>Disfruta</span> <span class="scroll">' + this.vProjets + "</span>"
 		);
 		const sltypeDiv = this.sltype.nativeElement.children[0];
 		this.affectInnerHtml(
 			sltypeDiv as HTMLElement,
-			'<span>type</span> <span class="scroll">' + this.vType + "</span>"
+			'<span>Promueve</span> <span class="scroll">' + this.vType + "</span>"
 		);
 
 		const slcompteur1 = this.slcompteur.nativeElement.querySelectorAll(
