@@ -91,7 +91,7 @@
 	overflow: hidden;
 }
 #slcompteur b {
-	color: #ffffff;
+	color: $white;
 	opacity: 0.3;
 	font-size: 200px;
 	margin-top: -16px;
@@ -107,7 +107,7 @@
 	overflow: hidden;
 }
 #slcompteur i {
-	color: #ffffff;
+	color: $white;
 	line-height: 20px;
 	font-size: 20px;
 	font-style: normal;
@@ -132,7 +132,7 @@
 }
 #slider .line .scroll {
 	overflow: hidden;
-	color: #ffffff;
+	color: $white;
 }
 
 #slider .line > div > span:first-child:before {
@@ -152,7 +152,7 @@
 	width: 100vw;
 	right: calc(100% + 34px);
 	bottom: 4px;
-	background: #ffffff;
+	background: $white;
 	position: absolute;
 	opacity: 0.4;
 }
@@ -163,7 +163,7 @@
 	font-family: arial;
 	width: 40px;
 	height: 40px;
-	color: #ffffff;
+	color: $white;
 	text-decoration: none;
 	position: absolute;
 	top: calc(50% - 20px);
@@ -173,7 +173,7 @@
 #more i {
 	display: block;
 	position: absolute;
-	background: #ffffff;
+	background: $white;
 	transition: all 0.2s ease-out;
 }
 #more i:nth-child(1) {
