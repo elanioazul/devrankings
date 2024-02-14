@@ -1,1 +1,29 @@
+@import "../../../../theme//theme";
+.box {
 
+  &__icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__title {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 18px;
+    text-justify: inter-word;
+    @media (min-width: 991px) {
+      font-size: 21px;
+    }
+  }
+  &__desc {
+    text-align: justify;
+    padding-bottom: 1rem;
+    font-size: small;
+    line-height: 1.2;
+    font-size: 16px;
+    @media (min-width: 991px) {
+      font-size: 19px;
+    }
+  }
+}
