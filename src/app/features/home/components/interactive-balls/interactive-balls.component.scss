@@ -1,7 +1,15 @@
+@import "../../../../../theme/theme";
 .box {
   &__title {
     font-weight: 500;
     text-align: center;
+    font-family: $header-font;
+    font-size: rem(20px);
+    color: $hornygreenish;
+    @media (min-width: 991px) {
+      font-size: 2.55rem;
+      letter-spacing: .3rem;
+    }
   }
 
   &__chart {
