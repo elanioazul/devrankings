@@ -17,38 +17,47 @@
 			<p>devrankings@gmail.com</p>
 		</div>
 		<div class="box__brand">
-			<app-logo-inmotion class="box__brand--logo"></app-logo-inmotion>
-			<div class="box__brand--organization">
-				<p>DevRankings</p>
-				<p>somos</p>
-			</div>
-			<div class="box__brand--circle">
-				<a
-					class="box__brand--circle-inner"
-					href="https://twitter.com/elanio_herrador"
-					>RO</a
-				>
-				<!-- <p class="box__brand--circle-inner">HH</p> -->
-			</div>
-			<div class="box__brand--circle">
-				<a
-					class="box__brand--circle-inner"
-					href="https://twitter.com/elanio_herrador"
-					>MM</a
-				>
-				<!-- <p class="box__brand--circle-inner">RO</p> -->
-			</div>
-			<div class="box__brand--circle">
-				<a
-					class="box__brand--circle-inner"
-					href="https://twitter.com/elanio_herrador"
-					>HH</a
-				>
-				<!-- <p class="box__brand--circle-inner">MA</p> -->
+			<div class="flex flex-column">
+				<div class="flex flex-row justify-content-center">
+					<app-logo class="box__brand--logo"></app-logo>
+					<app-logo-inmotion
+						class="box__brand--logo-motion"
+					></app-logo-inmotion>
+				</div>
+				<div class="flex flex-row">
+					<div class="box__brand--organization">
+						<p>DevRankings</p>
+						<p>somos</p>
+					</div>
+					<div class="box__brand--circle">
+						<a
+							class="box__brand--circle-inner"
+							href="https://twitter.com/elanio_herrador"
+							>RO</a
+						>
+						<!-- <p class="box__brand--circle-inner">HH</p> -->
+					</div>
+					<div class="box__brand--circle">
+						<a
+							class="box__brand--circle-inner"
+							href="https://twitter.com/elanio_herrador"
+							>MM</a
+						>
+						<!-- <p class="box__brand--circle-inner">RO</p> -->
+					</div>
+					<div class="box__brand--circle">
+						<a
+							class="box__brand--circle-inner"
+							href="https://twitter.com/elanio_herrador"
+							>HH</a
+						>
+						<!-- <p class="box__brand--circle-inner">MA</p> -->
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="box__social-fixed box__social-fixed--left">
-			<ul class="box__social-list--fixed">
+		<div #fixedSocial class="box__social-fixed box__social-fixed--left">
+			<ul #iconList class="box__social-list--fixed">
 				<ng-container *ngFor="let icon of socialMedia">
 					<li class="box__social-icon">
 						<a class="box__social-icon-link" href="javascript:void(0);"
@@ -62,8 +71,8 @@
 				</ng-container>
 			</ul>
 		</div>
-		<div class="box__social-fixed box__social-fixed--right">
-			<div class="box__social-email">
+		<div #fixedEmail class="box__social-fixed box__social-fixed--right">
+			<div #email class="box__social-email">
 				<a class="box__social-email--href" href="mailto:devrankings@gmail.com"
 					>devrankings@gmail.com</a
 				>
