@@ -1,5 +1,6 @@
-import { Component, inject } from "@angular/core";
+import { Component, computed, inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { IUser } from "@core/interfaces/user.interface";
 import { AuthService } from "@core/services/auth.service";
 import {
@@ -15,6 +16,9 @@ import {
 })
 export class SigninComponent {
 	authService = inject(AuthService);
+	router = inject(Router);
+
+	recognizedUser = computed(() => this.authService.isLoggedIn());
 
 	faFb = faFacebookF;
 	faInsta = faInstagram;
@@ -36,5 +40,11 @@ export class SigninComponent {
 			password: this.loginForm.get("password")?.value,
 		};
 		this.authService.login(user);
+		if (this.recognizedUser()) {
+			this.router.navigate(["/dashboard"]);
+		} else {
+			alert("not recognized user");
+			console.log("not recognized user");
+		}
 	}
 }
