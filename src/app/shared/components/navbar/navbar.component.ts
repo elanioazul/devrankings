@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	private unSubscribe = new Subject<void>();
 
 	navOptions: INavBarMenuLinkProps[] = [
-		{ to: "/home", label: "Home", icon: faHouse, isDefault: true },
+		{ to: "/inicio", label: "Inicio", icon: faHouse, isDefault: true },
 		{
 			to: "/rankings",
 			label: "Rankings",

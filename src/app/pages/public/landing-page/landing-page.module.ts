@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { LandingPageRoutingModule } from "./landing-page-routing.module";
 import { LandingPageComponent } from "./landing-page.component";
 
-import { HomeModule } from "@features/home/home.module";
+import { InicioModule } from "@features/inicio/inicio.module";
 import {
 	BaseCanvasModule,
 	BaseCanvasInvertModule,
@@ -18,7 +18,7 @@ import { FooterModule } from "@shared/components";
 	imports: [
 		CommonModule,
 		LandingPageRoutingModule,
-		HomeModule,
+		InicioModule,
 		BaseCanvasModule,
 		BaseCanvasInvertModule,
 		CoorpFrameModule,

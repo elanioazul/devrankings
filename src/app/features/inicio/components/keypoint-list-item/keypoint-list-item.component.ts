@@ -1,5 +1,5 @@
 import { OnInit, Component, Input, ViewEncapsulation } from "@angular/core";
-import { IKeyPoint } from "@features/home/interfaces/IkeyPoint";
+import { IKeyPoint } from "@features/inicio/interfaces/IkeyPoint";
 @Component({
 	selector: "app-keypoint-list-item",
 	templateUrl: "./keypoint-list-item.component.html",

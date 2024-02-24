@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { HomeRoutingModule } from "./home-routing.module";
-import { HomeComponent } from "./home.component";
+import { InicioRoutingModule } from "./inicio-routing.module";
+import { InicioComponent } from "./inicio.component";
 //import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 import { CardModule } from "@shared/components/card";
 import { ButtonModule } from "@shared/components/button";
@@ -21,7 +21,7 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 
 @NgModule({
 	declarations: [
-		HomeComponent,
+		InicioComponent,
 		WhatwedoComponent,
 		ScrollsliderComponent,
 		KeypointListComponent,
@@ -32,7 +32,7 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 	],
 	imports: [
 		CommonModule,
-		HomeRoutingModule,
+		InicioRoutingModule,
 		// BaseCanvasModule,
 		// CoorpFrameModule,
 		CardModule,
@@ -53,4 +53,4 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 		ContactaComponent,
 	],
 })
-export class HomeModule {}
+export class InicioModule {}
