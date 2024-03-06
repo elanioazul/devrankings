@@ -56,15 +56,6 @@ import { FooterModule } from "@shared/components";
 		CoorpFrameModule,
 		FooterModule,
 	],
-	exports: [
-		// WhatwedoComponent,
-		// ScrollsliderComponent,
-		// KeypointListComponent,
-		// KeypointListItemComponent,
-		// InteractiveBallsComponent,
-		// DualSliderComponent,
-		// ContactaComponent,
-		InicioComponent,
-	],
+	exports: [InicioComponent],
 })
 export class InicioModule {}
