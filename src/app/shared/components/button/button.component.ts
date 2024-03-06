@@ -12,6 +12,11 @@ export class ButtonComponent {
 	@Input() loading!: boolean;
 	@Input() isDisabled!: boolean;
 
+	//auth0 dashboard
+	@Input() variant: "text" | "solid" | "outline" = "solid";
+	@Input() customClass = "";
+	@Input() enabled = true;
+
 	@Output() buttonClick = new EventEmitter<void>();
 
 	onButtonClick(): void {

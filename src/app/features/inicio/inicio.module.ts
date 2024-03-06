@@ -19,6 +19,14 @@ import { PrimengModule } from "@shared/components/primeng/primeng.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorFormModule } from "@shared/components/error-form/error-form.module";
 
+import {
+	BaseCanvasModule,
+	BaseCanvasInvertModule,
+	CoorpFrameModule,
+} from "src/app/shared";
+
+import { FooterModule } from "@shared/components";
+
 @NgModule({
 	declarations: [
 		InicioComponent,
@@ -42,15 +50,21 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 		FormsModule,
 		ReactiveFormsModule,
 		ErrorFormModule,
+
+		BaseCanvasModule,
+		BaseCanvasInvertModule,
+		CoorpFrameModule,
+		FooterModule,
 	],
 	exports: [
-		WhatwedoComponent,
-		ScrollsliderComponent,
-		KeypointListComponent,
-		KeypointListItemComponent,
-		InteractiveBallsComponent,
-		DualSliderComponent,
-		ContactaComponent,
+		// WhatwedoComponent,
+		// ScrollsliderComponent,
+		// KeypointListComponent,
+		// KeypointListItemComponent,
+		// InteractiveBallsComponent,
+		// DualSliderComponent,
+		// ContactaComponent,
+		InicioComponent,
 	],
 })
 export class InicioModule {}

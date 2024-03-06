@@ -1,4 +1,4 @@
 export const MOCKED_USER = {
-	email: "12345678@12345678.com",
-	password: "12345678",
+	email: "rodrigo@ormeno.com",
+	password: "12rodrigo",
 };

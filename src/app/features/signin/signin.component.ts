@@ -38,6 +38,8 @@ export class SigninComponent {
 		const user: IUser = {
 			email: this.loginForm.get("email")?.value,
 			password: this.loginForm.get("password")?.value,
+			name: "Rodrigo",
+			surname: "Ormeño",
 		};
 		this.authService.login(user);
 		if (this.recognizedUser()) {

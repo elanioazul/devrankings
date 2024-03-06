@@ -19,13 +19,8 @@ import { Inject } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 import { ScrollwindowService } from "@core/services";
 import { Subject, takeUntil } from "rxjs";
+import { INavBarMenuLinkProps } from "@shared/interfaces/navbar-menu-links.interfaz";
 
-export interface INavBarMenuLinkProps {
-	to: string;
-	icon: IconDefinition;
-	label: string;
-	isDefault: boolean;
-}
 @Component({
 	selector: "app-navbar",
 	templateUrl: "./navbar.component.html",
