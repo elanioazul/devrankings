@@ -1,4 +1,4 @@
-import { Component, computed, inject } from "@angular/core";
+import { Component, OnInit, computed, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "@core/services/auth.service";
 import {
@@ -16,7 +16,7 @@ import { INavBarMenuLinkProps } from "@shared/interfaces/navbar-menu-links.inter
 	templateUrl: "./navigation-bar.component.html",
 	styleUrls: ["./navigation-bar.component.scss"],
 })
-export class NavigationBarComponent {
+export class NavigationBarComponent implements OnInit {
 	router = inject(Router);
 	authService = inject(AuthService);
 
@@ -32,26 +32,30 @@ export class NavigationBarComponent {
 	user = computed(() => this.authService.user());
 
 	navOptions: INavBarMenuLinkProps[] = [
-		{ to: "/home", label: "Home", icon: faHouse, isDefault: true },
+		{ to: "./home", label: "Home", icon: faHouse, isDefault: true },
 		{
-			to: "/rankings",
+			to: "./rankings",
 			label: "Rankings",
 			icon: faRankingStar,
 			isDefault: false,
 		},
 		{
-			to: "/statistics",
+			to: "./statistics",
 			label: "Estadísticas",
 			icon: faBarChart,
 			isDefault: false,
 		},
 		{
-			to: "/profile",
+			to: "./profile",
 			label: "Perfil",
 			icon: faUser,
 			isDefault: false,
 		},
 	];
+
+	ngOnInit() {
+		this.router.events.subscribe((event) => console.log(event));
+	}
 
 	toggleNavBar() {
 		this.isNavBarVisible = !this.isNavBarVisible;
