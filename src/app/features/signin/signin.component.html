@@ -58,6 +58,7 @@
 				[type]="'btn1'"
 				[inputText]="'Login'"
 				[isDisabled]="!loginForm.valid"
+				(buttonClick)="onSumbmit()"
 			></app-button>
 			<a class="go-signup" routerLink="/signup" href="#"
 				>¿No tienes una cuenta

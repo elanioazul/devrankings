@@ -19,13 +19,8 @@ import { Inject } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 import { ScrollwindowService } from "@core/services";
 import { Subject, takeUntil } from "rxjs";
+import { INavBarMenuLinkProps } from "@shared/interfaces/navbar-menu-links.interfaz";
 
-export interface INavBarMenuLinkProps {
-	to: string;
-	icon: IconDefinition;
-	label: string;
-	isDefault: boolean;
-}
 @Component({
 	selector: "app-navbar",
 	templateUrl: "./navbar.component.html",
@@ -54,7 +49,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	private unSubscribe = new Subject<void>();
 
 	navOptions: INavBarMenuLinkProps[] = [
-		{ to: "/home", label: "Home", icon: faHouse, isDefault: true },
+		{ to: "/inicio", label: "Inicio", icon: faHouse, isDefault: true },
 		{
 			to: "/rankings",
 			label: "Rankings",

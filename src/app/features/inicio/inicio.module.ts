@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { HomeRoutingModule } from "./home-routing.module";
-import { HomeComponent } from "./home.component";
+import { InicioRoutingModule } from "./inicio-routing.module";
+import { InicioComponent } from "./inicio.component";
 //import { BaseCanvasModule, CoorpFrameModule } from "src/app/shared";
 import { CardModule } from "@shared/components/card";
 import { ButtonModule } from "@shared/components/button";
@@ -19,9 +19,17 @@ import { PrimengModule } from "@shared/components/primeng/primeng.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorFormModule } from "@shared/components/error-form/error-form.module";
 
+import {
+	BaseCanvasModule,
+	BaseCanvasInvertModule,
+	CoorpFrameModule,
+} from "src/app/shared";
+
+import { FooterModule } from "@shared/components";
+
 @NgModule({
 	declarations: [
-		HomeComponent,
+		InicioComponent,
 		WhatwedoComponent,
 		ScrollsliderComponent,
 		KeypointListComponent,
@@ -32,7 +40,7 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 	],
 	imports: [
 		CommonModule,
-		HomeRoutingModule,
+		InicioRoutingModule,
 		// BaseCanvasModule,
 		// CoorpFrameModule,
 		CardModule,
@@ -42,15 +50,12 @@ import { ErrorFormModule } from "@shared/components/error-form/error-form.module
 		FormsModule,
 		ReactiveFormsModule,
 		ErrorFormModule,
+
+		BaseCanvasModule,
+		BaseCanvasInvertModule,
+		CoorpFrameModule,
+		FooterModule,
 	],
-	exports: [
-		WhatwedoComponent,
-		ScrollsliderComponent,
-		KeypointListComponent,
-		KeypointListItemComponent,
-		InteractiveBallsComponent,
-		DualSliderComponent,
-		ContactaComponent,
-	],
+	exports: [InicioComponent],
 })
-export class HomeModule {}
+export class InicioModule {}

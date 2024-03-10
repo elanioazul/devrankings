@@ -1,14 +1,15 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { authGuard } from "@core/guards/auth.guard";
 
 const routes: Routes = [
 	{
 		path: "",
-		redirectTo: "/home",
+		redirectTo: "/inicio",
 		pathMatch: "full",
 	},
 	{
-		path: "home",
+		path: "inicio",
 		loadChildren: () =>
 			import("./pages/public/landing-page/landing-page.module").then(
 				(m) => m.LandingPageModule
@@ -50,6 +51,14 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: "dashboard",
+		loadChildren: () =>
+			import("./pages/private/dashboard-page/dashboard-page.module").then(
+				(m) => m.DashboardPageModule
+			),
+		canActivate: [authGuard],
+	},
+	{
 		path: "**",
 		loadChildren: () =>
 			import("./pages/notfound-page/notfound-page.module").then(
@@ -59,7 +68,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [
+		RouterModule.forRoot(routes, { useHash: true, enableTracing: true }),
+	],
 	exports: [RouterModule],
 })
 export class AppRoutingModule {}
