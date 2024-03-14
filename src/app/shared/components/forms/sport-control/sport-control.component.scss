@@ -1,0 +1,310 @@
+$blue: #274394;
+$lightBlue: #5963a7;
+$teal: #68bba7;
+$green: #295e32;
+$lightGreen: #428149;
+$peach: #eeae95;
+$bg: #fefaf0;
+
+$delay: .8s;
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+  a {
+    margin: 5px 0;
+    text-align: center;
+    color: #fff;
+    background: $teal;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    border: 1px solid rgba(0,0,0,0.15);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    &:not(.active) {
+      &:hover {
+        background: rgba(0,0,0,0.1);
+      }
+    }
+    &.active {
+      background: $blue;
+    }
+  }
+}
+.frame {
+  background: $bg;
+  padding: 25px;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.print {
+  width: 365px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: $peach;
+  span:nth-child(n+4) {
+    color: $blue;
+  }
+  &.title-golf span:nth-child(n+3) {
+    color: $blue;
+  }
+}
+/*
+TENNIS
+*/
+.tennis {
+  .print {
+    background-image: linear-gradient(35deg,
+      $blue 60%,
+      $bg 60%,
+      $bg 62%,
+      $teal 62%);
+  }
+  .court-line {
+    width: 15px;
+    background: #fff;
+    height: 100%;
+    position: absolute;
+    top: 24%;
+    left: 10%;
+    transform: rotate(45deg);
+  }
+  .tennis-ball {
+    background: #f2ed91;
+    position: absolute;
+    right: 100px;
+    top: 80px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  .tennis-ball-shadow {
+    position: absolute;
+    width: 24px;
+    height: 15px;
+    background: $blue;
+    right: 103px;
+    top: 161px;
+    border-radius: 50%;
+  }
+  &.active {
+    .tennis-ball {
+      animation: tennis-ball 1.5s ease $delay;
+    }
+    .tennis-ball-shadow {
+      animation: tennis-ball-shadow 1.5s ease $delay;
+    }
+  }
+}
+/*
+SQUASH
+*/
+.squash {
+  .wall-back {
+    background: $lightBlue;
+    width: 60%;
+    height: 80%;
+    position: absolute;
+  }
+  .wall-side {
+    background: $blue;
+    width: 40%;
+    height: 80%;
+    right: 0;
+    position: absolute;
+  }
+  .floor {
+    position: absolute;
+    bottom: 20%;
+    width: 0;
+    height: 0;
+    border-left: 219px solid transparent;
+    border-right: 180px solid transparent;
+    border-bottom: 50px solid $bg;
+  }
+  .court-line {
+    height: 15px;
+    background: #fff;
+    width: 60%;
+    position: absolute;
+    top: 45%;
+    transform: skewY(-8deg);
+  }
+  .squash-ball {
+    background: white;
+    position: absolute;
+    right: 70px;
+    top: 150px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+  .squash-ball-shadow {
+    position: absolute;
+    background: $blue;
+    right: 70px;
+    top: 450px;
+    width: 25px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  &.active {
+    .squash-ball {
+      animation: squash-ball 1.5s ease-out $delay forwards;
+    }
+    .squash-ball-shadow {
+      animation: squash-ball-shadow 1.5s ease-out $delay forwards;
+    }
+  }
+}
+
+/*
+GOLF
+*/
+.golf {
+  .print {
+    background: $blue;
+  }
+  .sun {
+    background: #d65135;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    position: absolute;
+    top: 145px;
+    right: 35px;
+  }
+  .background {
+    background: $green;
+    width: 365px;
+    height: 365px;
+    border-radius: 10px;
+    position: absolute;
+    top: 155px;
+    left: 195px;
+    transform: skew(70deg, -15deg);
+  }
+  .foreground {
+    background: $lightGreen;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 220px;
+    transform: skewY(-15deg);
+  }
+  .golf-ball {
+    position: absolute;
+    bottom: 120px;
+    left: 120px;
+    &::after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+  &.active {
+    .golf-ball {
+      animation: golf-ball-xAxis 4s forwards ease-out $delay;
+      &::after {
+        animation: golf-ball-yAxis 4s forwards cubic-bezier(0.02, 0.27, 0.07, 1.64) $delay;
+      }
+    }
+  }
+}
+
+@keyframes tennis-ball {
+  0% {
+    top: 80px;
+  }
+  40% {
+    top: 135px;
+  }
+  100% {
+    top: 80px;
+  }
+}
+@keyframes tennis-ball-shadow {
+  0% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(.4, .4);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes squash-ball {
+  0% {
+    right: 70px;
+    top: 150px;
+  }
+  40% {
+    right: 200px;
+    top: 190px;
+  }
+  100% {
+    right: 135px;
+    top: 260px;
+  }
+}
+@keyframes squash-ball-shadow {
+  0% {
+    right: 70px;
+    top: 450px;
+  }
+  40% {
+    right: 200px;
+    top: 365px;
+  }
+  100% {
+    right: 135px;
+    top: 370px;
+  }
+}
+@keyframes golf-ball-yAxis {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    width: 3px;
+    height: 3px;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-178px);
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+}
+@keyframes golf-ball-xAxis {
+  100% {
+    transform: translateX(135px);
+  }
+}

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Sport } from "../../../types/sport.types";
 
-type Sport = "tennis" | "squash" | "golf";
 @Component({
 	selector: "app-sport-control",
 	templateUrl: "./sport-control.component.html",
@@ -15,19 +15,20 @@ type Sport = "tennis" | "squash" | "golf";
 	],
 })
 export class SportControlComponent implements ControlValueAccessor {
-	mood = "neutral";
+	sport = "tenis";
 
 	onChange = (value: Sport) => {};
 	onTouch = () => {};
 
-	setSport(mood: Sport) {
-		this.mood = mood;
-		this.onChange(mood);
+	setSport(sport: Sport, event: MouseEvent) {
+		event.preventDefault();
+		this.sport = sport;
+		this.onChange(sport);
 		this.onTouch();
 	}
 
 	writeValue(value: Sport) {
-		this.mood = value;
+		this.sport = value;
 	}
 
 	registerOnChange(fn: () => void): void {
