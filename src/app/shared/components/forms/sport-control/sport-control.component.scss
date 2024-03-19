@@ -118,7 +118,7 @@ TENNIS
 /*
 SQUASH
 */
-.squash {
+.fronton {
   .wall-back {
     background: $lightBlue;
     width: 60%;
@@ -149,7 +149,7 @@ SQUASH
     top: 45%;
     transform: skewY(-8deg);
   }
-  .squash-ball {
+  .fronton-ball {
     background: white;
     position: absolute;
     right: 70px;
@@ -158,7 +158,7 @@ SQUASH
     height: 25px;
     border-radius: 50%;
   }
-  .squash-ball-shadow {
+  .fronton-ball-shadow {
     position: absolute;
     background: $blue;
     right: 70px;
@@ -168,11 +168,11 @@ SQUASH
     border-radius: 50%;
   }
   &.active {
-    .squash-ball {
-      animation: squash-ball 1.5s ease-out $delay forwards;
+    .fronton-ball {
+      animation: fronton-ball 1.5s ease-out $delay forwards;
     }
-    .squash-ball-shadow {
-      animation: squash-ball-shadow 1.5s ease-out $delay forwards;
+    .fronton-ball-shadow {
+      animation: fronton-ball-shadow 1.5s ease-out $delay forwards;
     }
   }
 }
@@ -257,7 +257,7 @@ GOLF
   }
 }
 
-@keyframes squash-ball {
+@keyframes fronton-ball {
   0% {
     right: 70px;
     top: 150px;
@@ -271,7 +271,7 @@ GOLF
     top: 260px;
   }
 }
-@keyframes squash-ball-shadow {
+@keyframes fronton-ball-shadow {
   0% {
     right: 70px;
     top: 450px;

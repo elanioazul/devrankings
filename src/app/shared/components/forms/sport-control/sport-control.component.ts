@@ -45,7 +45,7 @@ export class SportControlComponent implements ControlValueAccessor {
 				this.renderer.addClass(this.tennisButton.nativeElement, "active");
 				this.renderer.addClass(this.tennisFrame.nativeElement, "active");
 				break;
-			case "squash":
+			case "fronton":
 				this.renderer.addClass(this.squashButton.nativeElement, "active");
 				this.renderer.addClass(this.squashFrame.nativeElement, "active");
 				break;

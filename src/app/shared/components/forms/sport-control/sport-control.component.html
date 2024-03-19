@@ -8,8 +8,12 @@
 			(click)="setSport('tennis', $event)"
 			>Tennis</a
 		>
-		<a #squashButton href="#" rel="squash" (click)="setSport('squash', $event)"
-			>Squash</a
+		<a
+			#squashButton
+			href="#"
+			rel="fronton"
+			(click)="setSport('fronton', $event)"
+			>Fronton</a
 		>
 		<a #golfButton href="#" rel="golf" (click)="setSport('golf', $event)"
 			>Golf</a
@@ -30,23 +34,24 @@
 			<span>S</span>
 		</div>
 	</div>
-	<div #squashFrame class="frame squash">
+	<div #squashFrame class="frame fronton">
 		<div class="print">
 			<div class="wall-back"></div>
 			<div class="wall-side"></div>
 			<div class="floor"></div>
 			<div class="court-line"></div>
-			<div class="squash-ball"></div>
-			<div class="squash-ball-shadow"></div>
+			<div class="fronton-ball"></div>
+			<div class="fronton-ball-shadow"></div>
 			<!-- *semantically*, having ball shadows as separate divs doesn't feel right, but it just seems a whole lot easier this way -->
 		</div>
-		<div class="title title-squash">
-			<span>S</span>
-			<span>Q</span>
-			<span>U</span>
-			<span>A</span>
-			<span>S</span>
-			<span>H</span>
+		<div class="title title-fronton">
+			<span>F</span>
+			<span>R</span>
+			<span>O</span>
+			<span>N</span>
+			<span>T</span>
+			<span>O</span>
+			<span>N</span>
 		</div>
 	</div>
 	<div #golfFrame class="frame golf">
