@@ -1,1 +1,1 @@
-export type Sport = "tennis" | "fronton" | "golf";
+export type Sport = "tennis" | "fronton" | "padle";

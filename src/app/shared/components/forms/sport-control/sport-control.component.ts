@@ -49,7 +49,7 @@ export class SportControlComponent implements ControlValueAccessor {
 				this.renderer.addClass(this.squashButton.nativeElement, "active");
 				this.renderer.addClass(this.squashFrame.nativeElement, "active");
 				break;
-			case "golf":
+			case "padle":
 				this.renderer.addClass(this.golfButton.nativeElement, "active");
 				this.renderer.addClass(this.golfFrame.nativeElement, "active");
 		}
