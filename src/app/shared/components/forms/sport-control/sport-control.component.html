@@ -1,12 +1,21 @@
 <div class="wrap">
 	<div class="buttons">
-		<a href="#" class="active" rel="tennis" (click)="setSport('tennis', $event)"
+		<a
+			#tennisButton
+			href="#"
+			class="active"
+			rel="tennis"
+			(click)="setSport('tennis', $event)"
 			>Tennis</a
 		>
-		<a href="#" rel="squash" (click)="setSport('squash', $event)">Squash</a>
-		<a href="#" rel="golf" (click)="setSport('golf', $event)">Golf</a>
+		<a #squashButton href="#" rel="squash" (click)="setSport('squash', $event)"
+			>Squash</a
+		>
+		<a #golfButton href="#" rel="golf" (click)="setSport('golf', $event)"
+			>Golf</a
+		>
 	</div>
-	<div class="frame active tennis">
+	<div #tennisFrame class="frame active tennis">
 		<div class="print">
 			<div class="court-line"></div>
 			<div class="tennis-ball"></div>
@@ -21,7 +30,7 @@
 			<span>S</span>
 		</div>
 	</div>
-	<div class="frame squash">
+	<div #squashFrame class="frame squash">
 		<div class="print">
 			<div class="wall-back"></div>
 			<div class="wall-side"></div>
@@ -40,7 +49,7 @@
 			<span>H</span>
 		</div>
 	</div>
-	<div class="frame golf">
+	<div #golfFrame class="frame golf">
 		<div class="print">
 			<div class="sun"></div>
 			<div class="background"></div>
