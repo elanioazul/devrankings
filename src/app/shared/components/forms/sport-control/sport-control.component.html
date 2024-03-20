@@ -1,19 +1,19 @@
 <div class="wrap">
 	<div class="buttons">
 		<a
+			#squashButton
+			href="#"
+			rel="fronton"
+			(click)="setSport('fronton', $event)"
+			>Fronton</a
+		>
+		<a
 			#tennisButton
 			href="#"
 			class="active"
 			rel="tennis"
 			(click)="setSport('tennis', $event)"
 			>Tennis</a
-		>
-		<a
-			#squashButton
-			href="#"
-			rel="fronton"
-			(click)="setSport('fronton', $event)"
-			>Fronton</a
 		>
 		<a #golfButton href="#" rel="padle" (click)="setSport('padle', $event)"
 			>Padel</a
