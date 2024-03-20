@@ -1,5 +1,7 @@
 <div class="App">
-	<app-navbar></app-navbar>
+	<app-navbar
+		[style.display]="authService.isLoggedIn() ? 'none' : 'initial'"
+	></app-navbar>
 	<div class="epa">
 		<router-outlet></router-outlet>
 	</div>
