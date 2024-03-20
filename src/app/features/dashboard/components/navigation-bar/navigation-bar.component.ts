@@ -17,6 +17,8 @@ import { INavBarMenuLinkProps } from "@shared/interfaces/navbar-menu-links.inter
 	styleUrls: ["./navigation-bar.component.scss"],
 })
 export class NavigationBarComponent implements OnInit {
+	ringDynamicClass = "ring--sidebar";
+
 	router = inject(Router);
 	authService = inject(AuthService);
 

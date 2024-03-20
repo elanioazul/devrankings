@@ -15,7 +15,7 @@
 		<button class="close-nav-button" (click)="toggleNavBar()">
 			<fa-icon [icon]="faWindowClose" size="sm"></fa-icon>
 		</button>
-		<!-- <app-logo></app-logo> -->
+		<app-logo [dynamicClassRing]="ringDynamicClass"></app-logo>
 	</div>
 	<div class="nav-bar__menu">
 		<ng-container *ngFor="let option of navOptions">

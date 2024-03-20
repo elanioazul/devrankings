@@ -5,6 +5,10 @@
   justify-content: flex-start;
   align-items: center;
   max-height: 50px;
+
+  --sidebar {
+    max-height: 30px;
+  }
   &__logo {
     //position: relative;
   }
@@ -99,5 +103,10 @@
     border: 3.7px solid #fff;
     top: 16px;
     left: 53px;
+  }
+
+  &--sidebar {
+    top: 64px;
+    left: 44px;
   }
 }
