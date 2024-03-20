@@ -225,3 +225,24 @@
 	top: calc(50% - 25px);
 	right: calc(30vw - 5px);
 }
+
+.court {
+  background-image: url(../../../../../assets/img/court.jpg);
+  filter: brightness(150%);
+}
+
+.padle1 {
+  background-image: url(../../../../../assets/img/padle1.jpg);
+  filter: brightness(150%);
+  width: 157%;
+}
+.jump {
+  background-image: url(../../../../../assets/img/jump.jpg);
+  filter: brightness(150%);
+  width: 123%;
+}
+.college {
+  background-image: url(../../../../../assets/img/college.jpg);
+  filter: brightness(150%);
+  width: 124%;
+}
