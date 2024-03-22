@@ -11,6 +11,9 @@ import {
 } from "@angular/core";
 import { keyPointsOfDevRankings } from "../../constants/keypoints";
 import { KeypointListItemComponent } from "../keypoint-list-item/keypoint-list-item.component";
+import { selectFeatureCount } from "@core/store/device-size/device-size.selector";
+import { Subject, Subscription, takeUntil } from "rxjs";
+import { Store, select } from "@ngrx/store";
 @Component({
 	selector: "app-keypoint-list",
 	templateUrl: "./keypoint-list.component.html",
@@ -24,7 +27,20 @@ export class KeypointListComponent implements AfterViewInit {
 	@ViewChildren(KeypointListItemComponent, { read: ElementRef })
 	items!: QueryList<KeypointListItemComponent>;
 
-	constructor() {}
+	subscription!: Subscription;
+	public ngDestroyed$ = new Subject();
+	deviceSize: any;
+
+	constructor(private store: Store) {
+		this.subscription = this.store
+			.pipe(takeUntil(this.ngDestroyed$))
+			.pipe(select(selectFeatureCount))
+			.subscribe((data: any) => {
+				if (data) {
+					this.deviceSize = data.deviceSize;
+				}
+			});
+	}
 
 	ngAfterViewInit() {
 		const cards = document.querySelectorAll(".item");
@@ -33,6 +49,10 @@ export class KeypointListComponent implements AfterViewInit {
 		cards.forEach((card, i) => {
 			card.setAttribute("style", `viewTransitionName: card-${i}`);
 			card.addEventListener("click", () => {
+				if (this.deviceSize.category === "mobile") {
+					return;
+				}
+
 				if (!(document as any).startViewTransition) {
 					activateCard(card);
 				}
